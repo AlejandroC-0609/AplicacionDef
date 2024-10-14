@@ -13,6 +13,7 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+<<<<<<< HEAD
             android:name=".Reestablecer"
             android:exported="false" />
         <activity
@@ -28,6 +29,8 @@
             android:name=".Registro"
             android:exported="false" />
         <activity
+=======
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
             android:name=".CalcularCalorias"
             android:exported="false" />
         <activity
@@ -61,6 +64,12 @@
             android:name=".Recetas2"
             android:exported="false" />
         <activity
+<<<<<<< HEAD
+=======
+            android:name=".Recetas"
+            android:exported="false" />
+        <activity
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
             android:name=".Restablecer2"
             android:exported="false" />
         <activity
@@ -68,6 +77,18 @@
             android:exported="false"
             android:theme="@style/Theme.MyApplication" />
         <activity
+<<<<<<< HEAD
+=======
+            android:name=".IniciarSesion"
+            android:exported="false" />
+        <activity
+            android:name=".Registro"
+            android:exported="false" />
+        <activity
+            android:name=".Principal"
+            android:exported="false" />
+        <activity
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
             android:name=".inicio3"
             android:exported="false" />
         <activity

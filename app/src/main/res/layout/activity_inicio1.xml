@@ -10,6 +10,7 @@
 
     <ImageView
         android:id="@+id/imageView"
+<<<<<<< HEAD
         android:layout_width="147dp"
         android:layout_height="112dp"
         android:contentDescription="@string/img1"
@@ -19,12 +20,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.126"
+=======
+        android:layout_width="129dp"
+        android:layout_height="91dp"
+        android:contentDescription="@string/img1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.198"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.048"
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
         app:srcCompat="@drawable/hamburguesa" />
 
     <ImageView
         android:id="@+id/imageView2"
+<<<<<<< HEAD
         android:layout_width="147dp"
         android:layout_height="112dp"
+=======
+        android:layout_width="129dp"
+        android:layout_height="91dp"
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
         android:contentDescription="@string/img2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,8 +53,13 @@
 
     <ImageView
         android:id="@+id/imageView3"
+<<<<<<< HEAD
         android:layout_width="147dp"
         android:layout_height="112dp"
+=======
+        android:layout_width="129dp"
+        android:layout_height="91dp"
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
         android:contentDescription="@string/img3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,24 +73,35 @@
         android:id="@+id/textView"
         android:layout_width="323dp"
         android:layout_height="68dp"
+<<<<<<< HEAD
         android:gravity="center"
         android:text="Encuentra gran variedad de recetas gratis compartidas por cocineros caseros como tu, solo aca en Frugal Feast"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
+=======
+        android:text="@string/encuentra_gran_variedad_de_recetas_gratis_compartidas_por_cocineros_caseros_como_tu_solo_aca_en_frugal_feast"
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
+<<<<<<< HEAD
         app:layout_constraintVertical_bias="0.272" />
+=======
+        app:layout_constraintVertical_bias="0.206" />
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
 
     <Button
         android:id="@+id/botonContinuar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/continuar"
+<<<<<<< HEAD
         android:textColor="#FFFFFF"
         android:backgroundTint="@color/naranja_oscuro"
+=======
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

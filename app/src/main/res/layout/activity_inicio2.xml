@@ -10,8 +10,13 @@
 
     <ImageView
         android:id="@+id/imageView4"
+<<<<<<< HEAD
         android:layout_width="118dp"
         android:layout_height="116dp"
+=======
+        android:layout_width="89dp"
+        android:layout_height="92dp"
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.189"
@@ -22,8 +27,13 @@
 
     <ImageView
         android:id="@+id/imageView5"
+<<<<<<< HEAD
         android:layout_width="118dp"
         android:layout_height="116dp"
+=======
+        android:layout_width="89dp"
+        android:layout_height="92dp"
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.739"
@@ -34,8 +44,13 @@
 
     <ImageView
         android:id="@+id/imageView6"
+<<<<<<< HEAD
         android:layout_width="118dp"
         android:layout_height="116dp"
+=======
+        android:layout_width="89dp"
+        android:layout_height="92dp"
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,8 +62,13 @@
 
     <ImageView
         android:id="@+id/imageView7"
+<<<<<<< HEAD
         android:layout_width="118dp"
         android:layout_height="116dp"
+=======
+        android:layout_width="89dp"
+        android:layout_height="92dp"
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.739"
@@ -61,28 +81,45 @@
         android:id="@+id/textView2"
         android:layout_width="274dp"
         android:layout_height="61dp"
+<<<<<<< HEAD
         android:gravity="center"
         android:text="@string/unete_a_nuestra_comunidad_de_usuarios_que_estan_usando_nuestra_app_a_diario"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
+=======
+        android:layout_marginTop="60dp"
+        android:text="@string/unete_a_nuestra_comunidad_de_usuarios_que_estan_usando_nuestra_app_a_diario"
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
+<<<<<<< HEAD
         app:layout_constraintVertical_bias="0.166" />
+=======
+        app:layout_constraintVertical_bias="0.0" />
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
 
     <Button
         android:id="@+id/botonContinuar2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:backgroundTint="@color/naranja_oscuro"
         android:text="@string/continuar2"
         android:textColor="#FFFFFF"
+=======
+        android:text="@string/continuar2"
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
+<<<<<<< HEAD
         app:layout_constraintVertical_bias="0.472" />
+=======
+        app:layout_constraintVertical_bias="0.317" />
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,7 @@
 
     <TextView
         android:id="@+id/textView3"
+<<<<<<< HEAD
         android:layout_width="282dp"
         android:layout_height="70dp"
         android:gravity="center"
@@ -17,12 +18,21 @@
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
+=======
+        android:layout_width="268dp"
+        android:layout_height="51dp"
+        android:text="Mejora tu forma de comer, cocinar y de agilizar en tus comidas diarias."
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+<<<<<<< HEAD
         app:layout_constraintVertical_bias="0.121" />
+=======
+        app:layout_constraintVertical_bias="0.086" />
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
 
     <ImageView
         android:id="@+id/imageView8"
@@ -43,9 +53,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
         android:text="¡SOLO EN FRUGAL FEAST!"
+<<<<<<< HEAD
         android:textSize="18sp"
         android:textColor="#000000"
         android:textStyle="bold"
+=======
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,13 +66,20 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
+<<<<<<< HEAD
         android:id="@+id/botonContinuar3"
+=======
+        android:id="@+id/button3"
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:text="Continuar"
+<<<<<<< HEAD
         android:textColor="#FFFFFF"
         android:backgroundTint="@color/naranja_oscuro"
+=======
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

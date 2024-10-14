@@ -67,6 +67,7 @@
     <string name="img3">img3</string>
     <string name="continuar2">Continuar</string>
     <string name="unete_a_nuestra_comunidad_de_usuarios_que_estan_usando_nuestra_app_a_diario">Unete a nuestra comunidad de usuarios que estan usando nuestra app a diario</string>
+<<<<<<< HEAD
     <string name="registrarse">Registrarse</string>
     <string name="estoy_de_acuerdo_con_los_terminos_y_condiciones">Estoy de acuerdo con los Terminos y Condiciones.</string>
     <string name="nombre">Nombre</string>
@@ -104,4 +105,6 @@
     <string name="olvide_mi_contrase_a">Olvide mi contraseña</string>
     <string name="no_tienes_cuenta_aun">¿No tienes cuenta aun?</string>
     <string name="crear_cuenta">Crear cuenta</string>
+=======
+>>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
 </resources>
