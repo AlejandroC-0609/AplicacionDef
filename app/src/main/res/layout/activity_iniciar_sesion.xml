@@ -75,7 +75,7 @@
         android:id="@+id/textView14"
         android:layout_width="147dp"
         android:layout_height="20dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginBottom="364dp"
         android:autofillHints=""
         android:importantForAutofill="no"
         android:text="Usuario o correo electronico"
@@ -84,10 +84,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.151"
+        app:layout_constraintHorizontal_bias="0.166"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13"
-        app:layout_constraintVertical_bias="0.0"
         tools:ignore="HardcodedText,TextSizeCheck" />
 
     <EditText
@@ -136,34 +135,41 @@
 
     <TextView
         android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="317dp"
+        android:layout_height="53dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:padding="10dp"
         android:text="No tienes una cuenta? Registrate"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iniciarsesion1"
-        app:layout_constraintVertical_bias="0.221"
+        app:layout_constraintVertical_bias="0.125"
         tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="¿Olvidaste tu contraseña? Recuperar cuenta"
+        android:layout_width="413dp"
+        android:layout_height="54dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="¿Olvidaste tu contraseña? Recuperar cuenta"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16"
-        app:layout_constraintVertical_bias="0.173"
+        app:layout_constraintVertical_bias="0.466"
         tools:ignore="HardcodedText" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

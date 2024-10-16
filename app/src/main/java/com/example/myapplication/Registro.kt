@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -27,6 +28,11 @@ class Registro : AppCompatActivity() {
                     //Launch
                     startActivity(welcomeIntent)
                 }
+            val textViewIniciar = findViewById<TextView>(R.id.textView11)
+            textViewIniciar.setOnClickListener {
+                val intent = Intent(this, IniciarSesion::class.java)
+                startActivity(intent)
+            }
         }
     }
 }
