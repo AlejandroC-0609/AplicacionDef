@@ -49,13 +49,18 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView17"
-        app:layout_constraintVertical_bias="0.252"
+        app:layout_constraintVertical_bias="0.126"
         tools:ignore="HardcodedText,TextContrastCheck" />
 
     <TextView
         android:id="@+id/textView22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="229dp"
+        android:layout_height="59dp"
+        android:backgroundTint="@color/naranja_oscuro"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:padding="10dp"
         android:text="Olvide mi contraseña"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -64,7 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iniciarsesion"
-        app:layout_constraintVertical_bias="0.203"
+        app:layout_constraintVertical_bias="0.166"
         tools:ignore="HardcodedText" />
 
     <TextView
@@ -77,10 +82,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView22"
-        app:layout_constraintVertical_bias="0.205"
+        app:layout_constraintVertical_bias="0.211"
         tools:ignore="HardcodedText" />
 
     <TextView
@@ -90,18 +95,18 @@
         android:backgroundTint="@color/naranja_oscuro"
         android:clickable="true"
         android:focusable="true"
+        android:gravity="center"
         android:padding="10dp"
         android:text="Crear cuenta"
-        android:gravity="center"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView23"
-        app:layout_constraintVertical_bias="0.284"
+        app:layout_constraintVertical_bias="0.507"
         tools:ignore="HardcodedText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

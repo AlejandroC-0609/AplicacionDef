@@ -30,8 +30,12 @@ class Principal : AppCompatActivity() {
                 }
             val textViewCrearCuenta = findViewById<TextView>(R.id.textView24)
             textViewCrearCuenta.setOnClickListener {
-                // Navegar a la página de registro
                 val intent = Intent(this, Registro::class.java)
+                startActivity(intent)
+            }
+            val textViewOlvide = findViewById<TextView>(R.id.textView22)
+            textViewOlvide.setOnClickListener {
+                val intent = Intent(this, Reestablecer::class.java)
                 startActivity(intent)
             }
         }
