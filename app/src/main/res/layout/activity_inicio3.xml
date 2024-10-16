@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,81 +7,61 @@
     android:background="@color/naranja_claro"
     tools:context=".inicio3">
 
-    <TextView
-        android:id="@+id/textView3"
-<<<<<<< HEAD
-        android:layout_width="282dp"
-        android:layout_height="70dp"
-        android:gravity="center"
-        android:text="Mejora tu forma de comer, cocinar y de agilizar en tus comidas diarias."
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-=======
-        android:layout_width="268dp"
-        android:layout_height="51dp"
-        android:text="Mejora tu forma de comer, cocinar y de agilizar en tus comidas diarias."
->>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-<<<<<<< HEAD
-        app:layout_constraintVertical_bias="0.121" />
-=======
-        app:layout_constraintVertical_bias="0.086" />
->>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="282dp"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:text="Mejora tu forma de comer, cocinar y de agilizar en tus comidas diarias."
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.121" />
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="256dp"
-        android:layout_height="267dp"
-        android:layout_marginTop="72dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/chef" />
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="256dp"
+            android:layout_height="267dp"
+            android:layout_marginTop="72dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/chef" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:text="¡SOLO EN FRUGAL FEAST!"
-<<<<<<< HEAD
-        android:textSize="18sp"
-        android:textColor="#000000"
-        android:textStyle="bold"
-=======
->>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="68dp"
+            android:text="¡SOLO EN FRUGAL FEAST!"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView8"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-<<<<<<< HEAD
-        android:id="@+id/botonContinuar3"
-=======
-        android:id="@+id/button3"
->>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="Continuar"
-<<<<<<< HEAD
-        android:textColor="#FFFFFF"
-        android:backgroundTint="@color/naranja_oscuro"
-=======
->>>>>>> 0ce173def16e5d721a5ba72cba8578051ed0a5b1
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.136" />
+        <Button
+            android:id="@+id/botonContinuar3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:text="Continuar"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="@color/naranja_oscuro"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:layout_constraintVertical_bias="0.136" />
 </androidx.constraintlayout.widget.ConstraintLayout>
