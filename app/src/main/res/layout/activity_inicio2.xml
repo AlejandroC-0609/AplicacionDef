@@ -17,7 +17,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.087"
-            app:srcCompat="@drawable/avatar1" />
+            app:srcCompat="@drawable/avatar1"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -29,7 +30,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView4"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/avatar2" />
+            app:srcCompat="@drawable/avatar2"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -42,7 +44,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView5"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/avatar3" />
+            app:srcCompat="@drawable/avatar3"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/imageView7"
@@ -54,7 +57,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView6"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/avatar4" />
+            app:srcCompat="@drawable/avatar4"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
 
         <TextView
             android:id="@+id/textView2"
@@ -70,7 +74,8 @@
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView7"
-            app:layout_constraintVertical_bias="0.166" />
+            app:layout_constraintVertical_bias="0.166"
+            tools:ignore="TextSizeCheck" />
 
         <Button
             android:id="@+id/botonContinuar2"
@@ -83,6 +88,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
-            app:layout_constraintVertical_bias="0.472" />
+            app:layout_constraintVertical_bias="0.472"
+            tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

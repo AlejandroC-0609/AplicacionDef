@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -27,6 +28,12 @@ class Principal : AppCompatActivity() {
                     //Launch
                     startActivity(welcomeIntent)
                 }
+            val textViewCrearCuenta = findViewById<TextView>(R.id.textView24)
+            textViewCrearCuenta.setOnClickListener {
+                // Navegar a la página de registro
+                val intent = Intent(this, Registro::class.java)
+                startActivity(intent)
+            }
         }
     }
 }

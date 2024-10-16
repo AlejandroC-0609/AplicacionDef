@@ -45,7 +45,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
             app:layout_constraintVertical_bias="0.138"
-            app:srcCompat="@drawable/paella" />
+            app:srcCompat="@drawable/paella"
+            tools:ignore="ImageContrastCheck" />
 
         <TextView
             android:id="@+id/textView"
@@ -60,15 +61,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3"
-            app:layout_constraintVertical_bias="0.272" />
+            app:layout_constraintVertical_bias="0.272"
+            tools:ignore="HardcodedText,TextSizeCheck" />
 
         <Button
             android:id="@+id/botonContinuar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/continuar"
-            android:textColor="#FFFFFF"
             android:backgroundTint="@color/naranja_oscuro"
+            android:text="@string/continuar"
+            android:textColor="#5D4037"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
