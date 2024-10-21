@@ -1,5 +1,7 @@
 package com.example.myapplication
 
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +11,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.auth.FirebaseAuth
+
+
 
 class Principal : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -16,6 +21,8 @@ class Principal : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_principal)
+
+        // Initialize Firebase Auth
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -28,16 +35,16 @@ class Principal : AppCompatActivity() {
                     //Launch
                     startActivity(welcomeIntent)
                 }
-            val textViewCrearCuenta = findViewById<TextView>(R.id.textView24)
-            textViewCrearCuenta.setOnClickListener {
-                val intent = Intent(this, Registro::class.java)
-                startActivity(intent)
-            }
-            val textViewOlvide = findViewById<TextView>(R.id.textView22)
-            textViewOlvide.setOnClickListener {
-                val intent = Intent(this, Reestablecer::class.java)
-                startActivity(intent)
-            }
+        }
+        val crearCuenta = findViewById<TextView>(R.id.crearCuentaBtnInicio)
+        crearCuenta.setOnClickListener {
+            val intent = Intent(this, Registro::class.java)
+            startActivity(intent)
+        }
+        val olvideContraseña = findViewById<TextView>(R.id.olvideBtnInicio1)
+        olvideContraseña.setOnClickListener {
+            val intent = Intent(this, Reestablecer::class.java)
+            startActivity(intent)
         }
     }
 }

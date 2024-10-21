@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    // Add the Google services Gradle plugin
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -39,7 +41,14 @@ android {
 }
 
 dependencies {
+    // Import the Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:33.4.0"))
 
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+
+    // Add the dependency for the Firebase SDK for Google Analytics
+    implementation(libs.firebase.analytics.ktx)
+    implementation(libs.firebase.auth)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -47,6 +56,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.firebase.common.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

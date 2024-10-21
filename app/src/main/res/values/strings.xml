@@ -104,4 +104,18 @@
     <string name="olvide_mi_contrase_a">Olvide mi contraseña</string>
     <string name="no_tienes_cuenta_aun">¿No tienes cuenta aun?</string>
     <string name="crear_cuenta">Crear cuenta</string>
+    <string name="contrase_ahint">Contraseña</string>
+    <string name="registroLabel">Registro</string>
+    <string name="olvideBtnInicio">Olvide mi contraseña</string>
+    <string name="crear_cuentaTextoInicio">Crear cuenta</string>
+    <string name="no_tienes_cuenta_a_n">¿No tienes cuenta aún?</string>
+    <string name="comienza_en_frugal_feasta">¡Comienza en Frugal Feast!</string>
+    <string name="estoy_de_acuerdo_con_los_terminos_y_condicionesa">Estoy de acuerdo con los Terminos y Condiciones.</string>
+    <string name="ya_tienes_cuenta_iniciar_sesiona">¿Ya tienes cuenta? Iniciar Sesion</string>
+    <string name="registrarsetxtbtn">Registrarse</string>
+    <string name="usuario_o_correo_electronicotittle">Usuario o correo electronico</string>
+    <string name="no_tienes_una_cuenta_registrate">No tienes una cuenta? Registrate</string>
+    <string name="iniciar_sesionInicio">Iniciar Sesion</string>
+    <string name="olvidaste_tu_contrase_a_recuperar_cuentaaa"><![CDATA[¿Olvidaste tu contraseña? Recuperar cuenta]]></string>
+    <string name="inicia_sesion_con_tu_cuenta_frugal_feast">Inicia sesion con tu cuenta frugal feast</string>
 </resources>
