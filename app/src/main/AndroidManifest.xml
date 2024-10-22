@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".RecetasGuardadas"
+            android:exported="false" />
+        <activity
             android:name=".Usuario"
             android:exported="false" />
         <activity
@@ -50,9 +53,6 @@
             android:exported="false" />
         <activity
             android:name=".MiPerfil"
-            android:exported="false" />
-        <activity
-            android:name=".RecetasGuardadas"
             android:exported="false" />
         <activity
             android:name=".InicialReceta"
