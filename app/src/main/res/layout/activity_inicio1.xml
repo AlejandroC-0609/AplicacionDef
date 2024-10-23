@@ -15,11 +15,14 @@
             android:contentDescription="@string/img1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.156"
+            app:layout_constraintHorizontal_bias="0.155"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.126"
-            app:srcCompat="@drawable/hamburguesa" />
+            app:layout_constraintVertical_bias="0.087"
+            app:srcCompat="@drawable/hamburguesa"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            android:background="@drawable/rounded_image" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -28,11 +31,14 @@
             android:contentDescription="@string/img2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.843"
+            app:layout_constraintHorizontal_bias="0.837"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView"
-            app:layout_constraintVertical_bias="0.086"
-            app:srcCompat="@drawable/tacos" />
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/tacos"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            android:background="@drawable/rounded_image"/>
 
         <ImageView
             android:id="@+id/imageView3"
@@ -41,36 +47,39 @@
             android:contentDescription="@string/img3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.156"
+            app:layout_constraintHorizontal_bias="0.155"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
-            app:layout_constraintVertical_bias="0.138"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/paella"
-            tools:ignore="ImageContrastCheck" />
+            tools:ignore="ImageContrastCheck"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            android:background="@drawable/rounded_image"/>
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="323dp"
-            android:layout_height="68dp"
+            android:layout_width="251dp"
+            android:layout_height="205dp"
             android:gravity="center"
-            android:text="Encuentra gran variedad de recetas gratis compartidas por cocineros caseros como tú, solo acá en Frugal Feast"
             android:textColor="#000000"
-            android:textSize="18sp"
+            android:textSize="28sp"
             android:textStyle="bold"
+            android:text="Encuentra gran variedad de recetas gratis compartidas por cocineros caseros como tú, solo acá en Frugal Feast"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3"
-            app:layout_constraintVertical_bias="0.272"
+            app:layout_constraintVertical_bias="0.26"
             tools:ignore="HardcodedText,TextSizeCheck" />
 
         <Button
             android:id="@+id/botonContinuar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="220dp"
+            android:layout_height="50dp"
             android:backgroundTint="@color/naranja_oscuro"
             android:text="@string/continuar"
-            android:textColor="#5D4037"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

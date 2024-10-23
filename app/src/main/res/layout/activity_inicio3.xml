@@ -9,26 +9,25 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="282dp"
-            android:layout_height="70dp"
+            android:layout_width="251dp"
+            android:layout_height="205dp"
             android:gravity="center"
             android:text="Mejora tu forma de comer, cocinar y de agilizar en tus comidas diarias."
             android:textColor="#000000"
-            android:textSize="18sp"
+            android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.121"
+            app:layout_constraintVertical_bias="0.0"
             tools:ignore="HardcodedText,TextSizeCheck" />
 
         <ImageView
             android:id="@+id/imageView8"
             android:layout_width="256dp"
             android:layout_height="267dp"
-            android:layout_marginTop="72dp"
+            android:layout_marginBottom="232dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
@@ -40,12 +39,12 @@
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="68dp"
+            android:layout_width="250dp"
+            android:layout_height="144dp"
+            android:gravity="center"
             android:text="¡SOLO EN FRUGAL FEAST!"
-            android:textSize="18sp"
             android:textColor="#000000"
+            android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,9 +55,8 @@
 
         <Button
             android:id="@+id/botonContinuar3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
+            android:layout_width="220dp"
+            android:layout_height="50dp"
             android:backgroundTint="@color/naranja_oscuro"
             android:text="Continuar"
             android:textColor="#FFFFFF"
@@ -66,6 +64,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4"
-            app:layout_constraintVertical_bias="0.136"
+            app:layout_constraintVertical_bias="0.507"
             tools:ignore="HardcodedText,TextContrastCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

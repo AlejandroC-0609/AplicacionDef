@@ -25,8 +25,8 @@
 
     <ImageView
         android:id="@+id/imageView10"
-        android:layout_width="178dp"
-        android:layout_height="150dp"
+        android:layout_width="204dp"
+        android:layout_height="204dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -118,8 +118,8 @@
 
     <Button
         android:id="@+id/iniciarsesion1"
-        android:layout_width="200dp"
-        android:layout_height="55dp"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
         android:backgroundTint="@color/naranja_oscuro"
         android:text="@string/iniciar_sesionInicio"
         android:textColor="#FFFFFF"

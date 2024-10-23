@@ -26,8 +26,8 @@
 
     <ImageView
         android:id="@+id/imageView17"
-        android:layout_width="214dp"
-        android:layout_height="216dp"
+        android:layout_width="275dp"
+        android:layout_height="275dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -95,7 +95,7 @@
         android:padding="10dp"
         android:text="@string/crear_cuentaTextoInicio"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
