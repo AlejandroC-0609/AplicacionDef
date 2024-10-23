@@ -118,4 +118,8 @@
     <string name="iniciar_sesionInicio">Iniciar Sesion</string>
     <string name="olvidaste_tu_contrase_a_recuperar_cuentaaa"><![CDATA[¿Olvidaste tu contraseña? Recuperar cuenta]]></string>
     <string name="inicia_sesion_con_tu_cuenta_frugal_feast">Inicia sesion con tu cuenta frugal feast</string>
+    <string name="restablecer_contrase_a">Restablecer Contraseña</string>
+    <string name="ingresa_tu_correo_electr_nico_para_recibir_un_enlace_y_recuperar_tu_cuenta">Ingresa tu correo electrónico para recibir un enlace y recuperar tu cuenta:</string>
+    <string name="enviar">Enviar</string>
+    <string name="cancelar">Cancelar</string>
 </resources>

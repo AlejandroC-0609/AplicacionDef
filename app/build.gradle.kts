@@ -42,11 +42,12 @@ android {
 
 dependencies {
     // Import the Firebase BoM
-    implementation(platform("com.google.firebase:firebase-bom:33.4.0"))
+    implementation(platform(libs.firebase.bom))
 
     // When using the BoM, you don't specify versions in Firebase library dependencies
 
     // Add the dependency for the Firebase SDK for Google Analytics
+    implementation(libs.google.firebase.firestore)
     implementation(libs.firebase.analytics.ktx)
     implementation(libs.firebase.auth)
     implementation(libs.androidx.core.ktx)

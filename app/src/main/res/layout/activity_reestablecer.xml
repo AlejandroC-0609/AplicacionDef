@@ -9,20 +9,20 @@
     android:background="@color/naranja_claro">
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/reestablecerContraTexto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Restablecer Contraseña"
+        android:text="@string/restablecer_contrase_a"
+        android:textAllCaps="false"
         android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:textSize="28sp"
+        android:textStyle="italic|bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.104"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintVertical_bias="0.104" />
 
     <ImageView
         android:id="@+id/imageView18"
@@ -32,22 +32,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView25"
+        app:layout_constraintTop_toBottomOf="@+id/reestablecerContraTexto"
         app:layout_constraintVertical_bias="0.115"
-        app:srcCompat="@drawable/usuario"
+        app:srcCompat="@drawable/usuario1"
         tools:ignore="ContentDescription" />
 
     <TextView
-        android:id="@+id/textView26"
+        android:id="@+id/usuarioReestablecer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="USUARIO FRUGAL FEAST"
+        android:textAllCaps="true"
         android:textColor="#000000"
         android:textSize="18sp"
+        android:gravity="center"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView18"
         app:layout_constraintVertical_bias="0.0"
@@ -55,60 +56,58 @@
 
     <TextView
         android:id="@+id/textView27"
-        android:layout_width="285dp"
-        android:layout_height="62dp"
-        android:text="Ingresa tu correo electrónico para recibir un enlace y recuperar tu cuenta:"
+        android:layout_width="287dp"
+        android:layout_height="60dp"
+        android:text="@string/ingresa_tu_correo_electr_nico_para_recibir_un_enlace_y_recuperar_tu_cuenta"
         android:textColor="#000000"
         android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView26"
-        app:layout_constraintVertical_bias="0.26"
-        tools:ignore="HardcodedText,TextSizeCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/usuarioReestablecer"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <Button
+        android:id="@+id/cancelar"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/naranja_oscuro"
+        android:text="@string/cancelar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.196"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/correoCampoContra"
+        app:layout_constraintVertical_bias="0.25" />
+
+    <Button
+        android:id="@+id/enviar"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/naranja_oscuro"
+        android:text="@string/enviar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.817"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/correoCampoContra"
+
+        app:layout_constraintVertical_bias="0.25" />
 
     <EditText
-        android:id="@+id/editTextTextPassword4"
-        android:layout_width="330dp"
-        android:layout_height="48dp"
+        android:id="@+id/correoCampoContra"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
         android:ems="10"
-        android:inputType="textPassword"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/roundededittext"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView27"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="107dp"
-        android:layout_height="49dp"
-        android:backgroundTint="@color/naranja_oscuro"
-        android:text="Cancelar"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.131"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword4"
-        app:layout_constraintVertical_bias="0.31"
-        tools:ignore="HardcodedText,TextContrastCheck" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="107dp"
-        android:layout_height="49dp"
-        android:backgroundTint="@color/naranja_oscuro"
-        android:text="Enviar"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.865"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword4"
-        app:layout_constraintVertical_bias="0.31"
-        tools:ignore="HardcodedText,TextContrastCheck" />
+        app:layout_constraintVertical_bias="0.05" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.util.Log
 
 var sesion_iniciada = false;
-
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
