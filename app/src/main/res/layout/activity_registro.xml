@@ -55,21 +55,21 @@
                 app:layout_constraintVertical_bias="0.045"
                 tools:ignore="HardcodedText,TextSizeCheck" />
 
-            <EditText
-                android:id="@+id/nombreCampo"
-                android:layout_width="330dp"
-                android:layout_height="48dp"
-                android:autofillHints=""
-                android:background="@drawable/roundededittext"
-                android:ems="10"
-                android:inputType="text"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.419"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nombreLabel"
-                app:layout_constraintVertical_bias="0.040"
-                tools:ignore="HardcodedText,LabelFor" />
+        <EditText
+            android:id="@+id/nombreCampo"
+            android:layout_width="330dp"
+            android:layout_height="48dp"
+            android:autofillHints=""
+            android:background="@drawable/roundededittext"
+            android:ems="10"
+            android:inputType="text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.419"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nombreLabel"
+            app:layout_constraintVertical_bias="0.040"
+            tools:ignore="HardcodedText,LabelFor,SpeakableTextPresentCheck" />
 
             <TextView
                 android:id="@+id/apodoLabel"
@@ -88,22 +88,22 @@
                 app:layout_constraintVertical_bias="0.045"
                 tools:ignore="HardcodedText,TextSizeCheck" />
 
-            <EditText
-                android:id="@+id/apodoCampo"
-                android:layout_width="330dp"
-                android:layout_height="48dp"
-                android:autofillHints=""
-                android:background="@drawable/roundededittext"
-                android:ems="10"
+        <EditText
+            android:id="@+id/apodoCampo"
+            android:layout_width="330dp"
+            android:layout_height="48dp"
+            android:autofillHints=""
+            android:background="@drawable/roundededittext"
+            android:ems="10"
 
-                android:inputType="text"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.419"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/apodoLabel"
-                app:layout_constraintVertical_bias="0.040"
-                tools:ignore="HardcodedText,LabelFor" />
+            android:inputType="text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.419"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/apodoLabel"
+            app:layout_constraintVertical_bias="0.040"
+            tools:ignore="HardcodedText,LabelFor,SpeakableTextPresentCheck" />
 
             <TextView
                 android:id="@+id/correoLabel"
@@ -122,21 +122,21 @@
                 app:layout_constraintVertical_bias="0.045"
                 tools:ignore="HardcodedText,TextSizeCheck" />
 
-            <EditText
-                android:id="@+id/correoCampo"
-                android:layout_width="330dp"
-                android:layout_height="48dp"
-                android:autofillHints=""
-                android:ems="10"
-                android:inputType="text"
-                android:background="@drawable/roundededittext"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.419"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/correoLabel"
-                app:layout_constraintVertical_bias="0.040"
-                tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,LabelFor" />
+        <EditText
+            android:id="@+id/correoCampo"
+            android:layout_width="330dp"
+            android:layout_height="48dp"
+            android:autofillHints=""
+            android:background="@drawable/roundededittext"
+            android:ems="10"
+            android:inputType="text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.419"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/correoLabel"
+            app:layout_constraintVertical_bias="0.040"
+            tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,LabelFor,SpeakableTextPresentCheck" />
 
             <TextView
                 android:id="@+id/contraseñaLabel"
