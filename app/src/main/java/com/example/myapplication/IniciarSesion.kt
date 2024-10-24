@@ -60,6 +60,9 @@ class IniciarSesion : AppCompatActivity() {
                     if (task.isSuccessful) {
                         Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
                         sesion_iniciada = true
+                        val intent = Intent(this, Recetas::class.java)
+                        startActivity(intent)
+
                     } else {
                         Toast.makeText(this, "Error: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                     }

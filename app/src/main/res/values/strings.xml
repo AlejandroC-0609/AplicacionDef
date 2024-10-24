@@ -118,4 +118,11 @@
     <string name="iniciar_sesionInicio">Iniciar Sesion</string>
     <string name="olvidaste_tu_contrase_a_recuperar_cuentaaa"><![CDATA[¿Olvidaste tu contraseña? Recuperar cuenta]]></string>
     <string name="inicia_sesion_con_tu_cuenta_frugal_feast">Inicia sesion con tu cuenta frugal feast</string>
+    <string name="ingresa_tu_correo_electr_nico_para_recibir_un_enlace_y_recuperar_tu_cuenta">Ingresa tu correo electrónico para recibir un enlace y recuperar tu cuenta.</string>
+    <string name="cancelar">cancelar</string>
+    <string name="enviar">enviar</string>
+    <string name="restablecer_contrase_a">restablecer_contrase_a</string>
+    <string name="buscar_receta">Buscar receta...</string>
+    <string name="calcular_calor_as">Calcular Calorías</string>
+    <string name="mis_recetas">Mis recetas:</string>
 </resources>

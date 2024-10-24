@@ -61,6 +61,10 @@ class Registro : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, Reestablecer::class.java)
+                    intent.putExtra("APODO", apodo)
+                    startActivity(intent)
+
                 } else {
                     Toast.makeText(this, "Error: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }

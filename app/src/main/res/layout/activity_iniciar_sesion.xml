@@ -60,6 +60,7 @@
         android:background="@drawable/roundededittext"
         android:ems="10"
         android:inputType="text"
+        android:paddingStart="12dp"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="normal"
