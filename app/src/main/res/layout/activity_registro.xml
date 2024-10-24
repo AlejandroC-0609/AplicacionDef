@@ -209,9 +209,10 @@
                 tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck" />
 
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/checkBoxTerminos"
             android:layout_width="268dp"
             android:layout_height="42dp"
+            android:checked="false"
             android:gravity="center"
             android:text="@string/estoy_de_acuerdo_con_los_terminos_y_condicionesa"
             android:textColor="#000000"
@@ -235,7 +236,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox"
+                app:layout_constraintTop_toBottomOf="@+id/checkBoxTerminos"
                 app:layout_constraintVertical_bias="0.189"
                 tools:ignore="TextContrastCheck" />
 

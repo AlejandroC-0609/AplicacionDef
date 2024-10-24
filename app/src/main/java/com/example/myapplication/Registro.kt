@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -46,8 +47,9 @@ class Registro : AppCompatActivity() {
         val nombre = findViewById<EditText>(R.id.nombreCampo).text.toString().trim()
         val apodo = findViewById<EditText>(R.id.apodoCampo).text.toString().trim()
         val confirmarContraseña = findViewById<EditText>(R.id.confirmarContraCampo).text.toString().trim()
+        val aceptoTerminos = findViewById<CheckBox>(R.id.checkBoxTerminos).isChecked
 
-        if (nombre.isEmpty() || email.isEmpty() || contraseña.isEmpty() || confirmarContraseña.isEmpty()) {
+        if (nombre.isEmpty() || email.isEmpty() || contraseña.isEmpty() || confirmarContraseña.isEmpty() || aceptoTerminos) {
             Toast.makeText(this, "Por favor llena todos los campos", Toast.LENGTH_SHORT).show()
             return
         }
