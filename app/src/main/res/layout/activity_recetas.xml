@@ -9,7 +9,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="16dp"
             android:gravity="center_horizontal">
@@ -138,13 +138,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="3dp"
+                    android:padding="3dp"
                     android:gravity="center"
                     android:weightSum="3">
 
                         <ImageButton
                             android:layout_width="0dp"
-                            android:layout_margin="5dp"
+                            android:padding="5dp"
                             android:layout_height="67dp"
                             android:layout_weight="1"
                             android:src="@drawable/carpeta"
@@ -154,6 +154,7 @@
                         <ImageButton
                             android:layout_width="0dp"
                             android:layout_height="67dp"
+                            android:padding="5dp"
                             android:layout_weight="1"
                             android:src="@drawable/home"
                             android:background="@null"
@@ -162,6 +163,7 @@
                         <ImageButton
                             android:layout_width="0dp"
                             android:layout_height="67dp"
+                            android:padding="5dp"
                             android:layout_weight="1"
                             android:src="@drawable/usuario"
                             android:background="@null"
