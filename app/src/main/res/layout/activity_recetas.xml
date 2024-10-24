@@ -25,11 +25,10 @@
                     android:layout_marginBottom="20dp"
                     android:layout_gravity="center"/>
 
-                <!-- Sección de "Visto recientemente" -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Visto recientemente:"
+                    android:text="@string/visto_recientemente"
                     android:textColor="#905708"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -116,7 +115,7 @@
                             android:background="@drawable/rounded_image"/>
                 </LinearLayout>
 
-                <!-- Botón de Calcular Calorías -->
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
