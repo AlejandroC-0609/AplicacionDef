@@ -12,11 +12,11 @@
         android:id="@+id/comienzaTexto"
         android:layout_width="wrap_content"
         android:layout_height="112dp"
-        android:text="@string/comienza_en_frugal_feasta"
+        android:gravity="center"
+        android:text="¡Comienza en Frugal Feast!"
         android:textColor="#000000"
         android:textSize="40sp"
         android:textStyle="italic|bold"
-        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -75,7 +75,7 @@
         android:id="@+id/notienescuenta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/no_tienes_cuenta_a_n"
+        android:text="¿No tienes cuenta aún?"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -93,7 +93,7 @@
         android:focusable="true"
         android:gravity="center"
         android:padding="10dp"
-        android:text="@string/crear_cuentaTextoInicio"
+        android:text="Crear cuenta"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -102,6 +102,6 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/notienescuenta"
-        app:layout_constraintVertical_bias="0.05"/>
+        app:layout_constraintVertical_bias="0.05" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

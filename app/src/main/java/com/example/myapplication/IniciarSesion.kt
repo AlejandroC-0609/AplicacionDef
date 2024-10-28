@@ -46,26 +46,26 @@ class IniciarSesion : AppCompatActivity() {
             startActivity(intent)
         }
     }
-        private fun loginUser() {
-            val emailOusuario = findViewById<EditText>(R.id.usuarioOcorreo).text.toString().trim()
-            val contraseña = findViewById<EditText>(R.id.contraseñaCampoInicio).text.toString().trim()
+    private fun loginUser() {
+        val emailOusuario = findViewById<EditText>(R.id.usuarioOcorreo).text.toString().trim()
+        val contraseña = findViewById<EditText>(R.id.contraseñaCampoInicio).text.toString().trim()
 
-            if (emailOusuario.isEmpty() || contraseña.isEmpty()) {
-                Toast.makeText(this, "Por favor llena todos los campos", Toast.LENGTH_SHORT).show()
-                return
-            }
-
-            auth.signInWithEmailAndPassword(emailOusuario, contraseña)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
-                        sesion_iniciada = true
-                        val intent = Intent(this, Recetas::class.java)
-                        startActivity(intent)
-
-                    } else {
-                        Toast.makeText(this, "Error: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
-                    }
-                }
+        if (emailOusuario.isEmpty() || contraseña.isEmpty()) {
+            Toast.makeText(this, "Por favor llena todos los campos", Toast.LENGTH_SHORT).show()
+            return
         }
+
+        auth.signInWithEmailAndPassword(emailOusuario, contraseña)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
+                    sesion_iniciada = true
+                    val intent = Intent(this, Recetas::class.java)
+                    startActivity(intent)
+
+                } else {
+                    Toast.makeText(this, "Error: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
 }

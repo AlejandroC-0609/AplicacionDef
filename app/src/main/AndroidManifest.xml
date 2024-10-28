@@ -14,10 +14,10 @@
         tools:targetApi="31">
         <activity
             android:name=".RecetasGuardadas"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Usuario"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".PantallaReceta"
             android:exported="false" />
@@ -26,7 +26,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -41,7 +40,7 @@
             android:exported="false" />
         <activity
             android:name=".Recetas"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Reestablecer"
             android:exported="false" />
@@ -49,39 +48,11 @@
             android:name=".CalcularCalorias"
             android:exported="false" />
         <activity
-            android:name=".CaloriasResultado"
-            android:exported="false" />
-        <activity
-            android:name=".MiPerfil"
-            android:exported="false" />
-        <activity
-            android:name=".InicialReceta"
+            android:name=".CaloriasResultados"
             android:exported="false" />
         <activity
             android:name=".AgregarReceta"
             android:exported="false" />
-        <activity
-            android:name=".EditarReceta"
-            android:exported="false" />
-        <activity
-            android:name=".HoldMia"
-            android:exported="false" />
-        <activity
-            android:name=".EliminadoMia"
-            android:exported="false" />
-        <activity
-            android:name=".EliminadoRecientemente"
-            android:exported="false" />
-        <activity
-            android:name=".Recetas2"
-            android:exported="false" />
-        <activity
-            android:name=".Restablecer2"
-            android:exported="false" />
-        <activity
-            android:name=".Restablecer1"
-            android:exported="false"
-            android:theme="@style/Theme.MyApplication" />
         <activity
             android:name=".inicio3"
             android:exported="false" />
@@ -89,12 +60,7 @@
             android:name=".inicio2"
             android:exported="false" />
         <activity
-            android:name=".Inicio2"
-            android:exported="false"
-            android:theme="@style/Theme.MyApplication" />
-        <activity
             android:name=".Inicio1"
             android:exported="false" />
     </application>
-
 </manifest>
