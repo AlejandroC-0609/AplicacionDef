@@ -213,7 +213,7 @@
             android:layout_width="268dp"
             android:layout_height="42dp"
             android:gravity="center"
-            android:text="@string/estoy_de_acuerdo_con_los_terminos_y_condicionesa"
+            android:text="Estoy de acuerdo con los Terminos y  Condiciones."
             android:textColor="#000000"
             android:textSize="14sp"
             android:textStyle="normal"
@@ -225,38 +225,38 @@
             app:layout_constraintVertical_bias="0.20" />
 
         <Button
-                android:id="@+id/registrarse"
-                android:layout_width="220dp"
-                android:layout_height="50dp"
-                android:backgroundTint="@color/naranja_oscuro"
-                android:text="@string/registrarsetxtbtn"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox"
-                app:layout_constraintVertical_bias="0.189"
-                tools:ignore="TextContrastCheck" />
+            android:id="@+id/registrarse"
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/naranja_oscuro"
+            android:text="Registrarse"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox"
+            app:layout_constraintVertical_bias="0.189"
+            tools:ignore="TextContrastCheck" />
 
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="210dp"
-                android:layout_height="40dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:padding="1dp"
-                android:layout_marginBottom="50dp"
-                android:text="@string/ya_tienes_cuenta_iniciar_sesiona"
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                app:layout_goneMarginBottom="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/registrarse" />
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="50dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:padding="1dp"
+            android:text="¿Ya tienes cuenta? Iniciar Sesion"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registrarse"
+            app:layout_goneMarginBottom="20dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

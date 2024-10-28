@@ -18,7 +18,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/roundededittext"
-                    android:hint="@string/buscar_receta"
+                    android:hint="Buscar Receta"
                     android:textColor="#905708"
                     android:textSize="18sp"
                     android:paddingStart="12dp"
@@ -71,16 +71,16 @@
                             android:background="@drawable/rounded_image"/>
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mis_recetas"
-                    android:textColor="#905708"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="12dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="Mis Recetas"
+                android:textColor="#905708"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-                <LinearLayout
+            <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -130,7 +130,7 @@
                     android:id="@+id/BotonCalorias"
                     android:layout_width="220dp"
                     android:layout_height="50dp"
-                    android:text="@string/calcular_calor_as"
+                    android:text="calcular calorias"
                     android:textColor="#FFFFFF"
                     android:backgroundTint="@color/naranja_oscuro"
                     android:layout_marginBottom="32dp"/>

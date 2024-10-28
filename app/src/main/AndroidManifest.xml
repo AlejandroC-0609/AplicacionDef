@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
-
         <activity
             android:name=".RecetasGuardadas"
             android:exported="true" />
@@ -58,11 +57,10 @@
             android:name=".inicio3"
             android:exported="false" />
         <activity
-            android:name=".Inicio2"
+            android:name=".inicio2"
             android:exported="false" />
         <activity
             android:name=".Inicio1"
             android:exported="false" />
     </application>
-
 </manifest>
