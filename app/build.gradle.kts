@@ -48,6 +48,7 @@ dependencies {
 
     // Add the dependency for the Firebase SDK for Google Analytics
     implementation(libs.github.glide)
+    implementation(libs.firebase.auth.ktx)
     annotationProcessor(libs.compiler)
     implementation(libs.firebase.analytics.ktx)
     implementation(libs.firebase.firestore)

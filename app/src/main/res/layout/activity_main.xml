@@ -23,6 +23,8 @@
         android:layout_gravity="bottom"
         android:elevation="8dp"
         app:menu="@menu/bottom_navigation"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="650dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
