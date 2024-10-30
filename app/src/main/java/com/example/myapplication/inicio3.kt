@@ -24,6 +24,7 @@ class inicio3 : AppCompatActivity() {
                 .also { welcomeIntent ->
                     //Launch
                     startActivity(welcomeIntent)
+                    finish()
                 }
         }
     }

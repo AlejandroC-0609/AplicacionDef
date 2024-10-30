@@ -21,10 +21,11 @@ class Inicio1 : AppCompatActivity() {
         }
         val botonContinuar: Button = findViewById(R.id.botonContinuar)
         botonContinuar.setOnClickListener {
-            Intent(this, inicio2::class.java)
+            Intent(this, Inicio2::class.java)
                 .also { welcomeIntent ->
                     //Launch
                     startActivity(welcomeIntent)
+                    finish()
                 }
         }
 

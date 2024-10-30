@@ -12,7 +12,7 @@
         android:id="@+id/reestablecerContraTexto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Restablecer contraseña"
+        android:text="@string/reestablecer_contrase_a"
         android:textAllCaps="false"
         android:textColor="#000000"
         android:textSize="28sp"
@@ -37,45 +37,26 @@
         app:srcCompat="@drawable/usuario"
         tools:ignore="ContentDescription" />
 
-    <TextView
-        android:id="@+id/usuarioReestablecer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="prueba"
-        android:textAllCaps="true"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView18"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="HardcodedText"
-        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/textView27"
         android:layout_width="287dp"
         android:layout_height="wrap_content"
-        android:text="Ingresa tu correo electrónico para recibir un enlace y recuperar tu cuenta:"
+        android:text="@string/ingresa_tu_correo_electr_nico_para_recibir_un_enlace_y_recuperar_tu_cuenta"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usuarioReestablecer"
-        app:layout_constraintVertical_bias="0.097" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView18"
+        app:layout_constraintVertical_bias="0.12" />
 
     <Button
         android:id="@+id/cancelar"
         android:layout_width="110dp"
         android:layout_height="50dp"
         android:backgroundTint="@color/naranja_oscuro"
-        android:text="Cancelar"
+        android:text="@string/cancelar"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -105,12 +86,15 @@
         android:ems="10"
         android:inputType="textEmailAddress"
         android:textColor="@color/black"
+        android:textSize="14sp"
         android:background="@drawable/roundededittext"
         android:paddingStart="12dp"
+        android:hint="@string/tu_correo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView27"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.05"
+        tools:ignore="RtlSymmetry" />
 </androidx.constraintlayout.widget.ConstraintLayout>

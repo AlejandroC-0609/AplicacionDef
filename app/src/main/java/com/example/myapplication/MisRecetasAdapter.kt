@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.myapplication.R
 
-class RecientementeAdapter(
+class MisRecetasAdapter(
     private val recetas: MutableList<Receta>,
     private val onRecetaLongClick: (Receta, View) -> Unit
-) : RecyclerView.Adapter<RecientementeAdapter.RecetaViewHolder>() {
+) : RecyclerView.Adapter<MisRecetasAdapter.RecetaViewHolder>() {
 
     inner class RecetaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nombre: TextView = itemView.findViewById(R.id.recetaNombre)

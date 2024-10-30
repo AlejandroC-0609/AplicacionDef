@@ -1,33 +1,29 @@
 package com.example.myapplication
 
-import android.content.ContentValues.TAG
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.google.firebase.firestore.FirebaseFirestore
 
 var sesion_iniciada = false;
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (!sesion_iniciada){
-            setContentView(R.layout.activity_inicio1)
-            Intent(this, Inicio1::class.java)
-                .also { welcomeIntent ->
-                    //Launch
-                    startActivity(welcomeIntent)
-                }
+        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+        val sesionIniciada = sharedPreferences.getBoolean("sesionIniciada", false)
+
+        if (!sesionIniciada) {
+            val intent = Intent(this, Inicio1::class.java)
+            startActivity(intent)
+            finish()
         } else {
-            setContentView(R.layout.fragment_recetas1)
-            Intent(this, Recetas::class.java)
-                .also { welcomeIntent ->
-                    //Launch
-                    startActivity(welcomeIntent)
-                }
+            setContentView(R.layout.activity_recetas)
         }
+
         Log.d(TAG, "onCreate")
     }
     override fun onRestoreInstanceState(savedInstanceState:
@@ -42,30 +38,4 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private const val TAG = "MainActivity"
     }
-
-    fun agregarRecetasPorDefault() {
-        val db = FirebaseFirestore.getInstance()
-
-        val receta = hashMapOf(
-            "nombre" to "Fricassé de Pollo",
-            "imagenUrl" to "gs://frugalfeast-3a591.appspot.com/fricase_pollo.jpg",
-            "ingredientes" to listOf(
-                mapOf("nombre" to "Pollo", "cantidad" to "500g"),
-                mapOf("nombre" to "Papas", "cantidad" to "3 unidades")
-            ),
-            "dificultad" to "Media",
-            "tiempo" to "45 minutos",
-            "porciones" to 4,
-            "preparacion" to "Primero cocine el pollo hasta que esté dorado..."
-        )
-
-        db.collection("recetas").add(receta)
-            .addOnSuccessListener {
-                println("Receta añadida correctamente")
-            }
-            .addOnFailureListener { e ->
-                println("Error al añadir receta: ${e.message}")
-            }
-    }
-
 }

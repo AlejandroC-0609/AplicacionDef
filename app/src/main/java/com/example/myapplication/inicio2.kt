@@ -26,6 +26,8 @@ class Inicio2 : AppCompatActivity() {
                 .also { welcomeIntent ->
                     //Launch
                     startActivity(welcomeIntent)
+                    finish()
+
                 }
         }
     }

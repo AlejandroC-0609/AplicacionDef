@@ -18,26 +18,24 @@
             android:layout_height="wrap_content"
             tools:context=".RecetasFragment">
 
-            <EditText
-                android:id="@+id/editTextText5"
+            <com.google.android.material.search.SearchBar
+                android:id="@+id/buscarRecetaBar"
                 android:layout_width="330dp"
                 android:layout_height="48dp"
-                android:autofillHints=""
-                android:background="@drawable/roundededittext"
-                android:ems="10"
-                android:inputType="text"
-                android:text="  Buscar receta..."
-                android:textColor="#905708"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:background="@drawable/roundededittext"
+                android:hint="@string/buscar_receta"
+                android:textColor="#905708"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.045"
-                tools:ignore="HardcodedText,LabelFor" />
+                app:layout_constraintVertical_bias="0.045"/>
 
+
+            <!--VISTO RECIENTEMENTE-->
             <TextView
                 android:id="@+id/textView18"
                 android:layout_width="wrap_content"
@@ -50,56 +48,36 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.142"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextText5"
+                app:layout_constraintTop_toBottomOf="@+id/buscarRecetaBar"
                 app:layout_constraintVertical_bias="0.075"
                 tools:ignore="HardcodedText" />
 
-            <ImageView
-                    android:id="@+id/imageView11"
-                    android:layout_width="89dp"
-                    android:layout_height="78dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.124"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView18"
-                    app:layout_constraintVertical_bias="0.068"
-                    app:srcCompat="@drawable/tacos"
-                    tools:ignore="ContentDescription"
-                    android:clipToOutline="true"
-                    android:scaleType="centerCrop"
-                    android:background="@drawable/rounded_image" />
+            <LinearLayout
+                android:id="@+id/layoutRecientemente"
+                android:layout_width="343dp"
+                android:layout_height="146dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textView18"
+                app:layout_constraintVertical_bias="0.1">
 
-                <ImageView
-                    android:id="@+id/imageView12"
-                    android:layout_width="89dp"
-                    android:layout_height="78dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView18"
-                    app:layout_constraintVertical_bias="0.07"
-                    app:srcCompat="@drawable/tacos"
-                    tools:ignore="ContentDescription"
-                    android:clipToOutline="true"
-                    android:scaleType="centerCrop"
-                    android:background="@drawable/rounded_image" />
+                <TextView
+                    android:id="@+id/textoRecientemente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/empieza_buscando_algo_rico_para_cocinar"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:visibility="gone"
+                    android:layout_gravity="center" />
 
-                <ImageView
-                    android:id="@+id/imageView13"
-                    android:layout_width="89dp"
-                    android:layout_height="78dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.872"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView18"
-                    app:layout_constraintVertical_bias="0.07"
-                    app:srcCompat="@drawable/tacos"
-                    tools:ignore="ContentDescription"
-                    android:clipToOutline="true"
-                    android:scaleType="centerCrop"
-                    android:background="@drawable/rounded_image" />**/
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerRecientemente"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <!--MIS RECETAS-->
             <TextView
                 android:id="@+id/textView19"
                 android:layout_width="wrap_content"
@@ -112,9 +90,35 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.111"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView11"
+                app:layout_constraintTop_toBottomOf="@+id/layoutRecientemente"
                 app:layout_constraintVertical_bias="0.134"
                 tools:ignore="HardcodedText" />
+
+            <LinearLayout
+                android:id="@+id/layoutMisRecetas"
+                android:layout_width="343dp"
+                android:layout_height="146dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/textView19"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.5">
+
+                <TextView
+                    android:id="@+id/textoMisRecetas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/agrega_una_de_tus_recetas"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:visibility="gone" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerMisRecetas"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/button"
@@ -131,67 +135,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,TextContrastCheck" />
 
-            <ImageView
-                android:id="@+id/imageView14"
-                android:layout_width="89dp"
-                android:layout_height="78dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.124"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView19"
-                app:layout_constraintVertical_bias="0.139"
-                app:srcCompat="@drawable/hamburguesa"
-                tools:ignore="ContentDescription"
-                android:clipToOutline="true"
-                android:scaleType="centerCrop"
-                android:background="@drawable/rounded_image" />
 
-            <ImageView
-                android:id="@+id/imageView15"
-                android:layout_width="89dp"
-                android:layout_height="78dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView19"
-                app:layout_constraintVertical_bias="0.139"
-                app:srcCompat="@drawable/hamburguesa"
-                tools:ignore="ContentDescription"
-                android:clipToOutline="true"
-                android:scaleType="centerCrop"
-                android:background="@drawable/rounded_image" />
-
-            <ImageView
-                android:id="@+id/imageView16"
-                android:layout_width="89dp"
-                android:layout_height="78dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.872"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView19"
-                app:layout_constraintVertical_bias="0.139"
-                app:srcCompat="@drawable/hamburguesa"
-                tools:ignore="ContentDescription"
-                android:clipToOutline="true"
-                android:scaleType="centerCrop"
-                android:background="@drawable/rounded_image" />
-
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="220dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="56dp"
-                android:backgroundTint="@color/naranja_oscuro"
-                android:text="Calcular Calorías"
-                android:textColor="#FFFFFF"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView20"
-                tools:ignore="HardcodedText,TextContrastCheck" />
 
             <TextView
                 android:id="@+id/textView20"
@@ -205,84 +149,23 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.182"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView14"
+                app:layout_constraintTop_toBottomOf="@+id/layoutMisRecetas"
                 tools:ignore="HardcodedText" />
 
-            <TextView
-                android:id="@+id/textView73"
-                android:layout_width="95dp"
-                android:layout_height="18dp"
-                android:text="Fricasé de pollo"
-                android:textSize="12sp"
-                android:gravity="center"
+            <Button
+                android:id="@+id/btnCalcularCalorias"
+                android:layout_width="220dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="56dp"
+                android:backgroundTint="@color/naranja_oscuro"
+                android:text="Calcular Calorías"
                 android:textColor="#FFFFFF"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+                app:layout_constraintTop_toBottomOf="@+id/textView20"
+                tools:ignore="HardcodedText,TextContrastCheck" />
 
-            <TextView
-                android:id="@+id/textView74"
-                android:layout_width="95dp"
-                android:layout_height="18dp"
-                android:gravity="center"
-                android:text="Fricasé de pollo"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toStartOf="@+id/textView73"
-                app:layout_constraintHorizontal_bias="0.587"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView11" />
-
-            <TextView
-                android:id="@+id/textView75"
-                android:layout_width="95dp"
-                android:layout_height="18dp"
-                android:gravity="center"
-                android:text="Fricasé de pollo"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.412"
-                app:layout_constraintStart_toEndOf="@+id/textView73"
-                app:layout_constraintTop_toBottomOf="@+id/imageView13" />
-
-            <TextView
-                android:id="@+id/textView76"
-                android:layout_width="95dp"
-                android:layout_height="18dp"
-                android:text="Fricasé de pollo"
-                android:textSize="12sp"
-                android:gravity="center"
-                android:textColor="#FFFFFF"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView15" />
-
-            <TextView
-                android:id="@+id/textView77"
-                android:layout_width="95dp"
-                android:layout_height="18dp"
-                android:gravity="center"
-                android:text="Fricasé de pollo"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toStartOf="@+id/textView76"
-                app:layout_constraintHorizontal_bias="0.587"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView14" />
-
-            <TextView
-                android:id="@+id/textView78"
-                android:layout_width="95dp"
-                android:layout_height="18dp"
-                android:gravity="center"
-                android:text="Fricasé de pollo"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.412"
-                app:layout_constraintStart_toEndOf="@+id/textView76"
-                app:layout_constraintTop_toBottomOf="@+id/imageView16" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

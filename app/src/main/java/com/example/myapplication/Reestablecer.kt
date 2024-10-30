@@ -23,11 +23,6 @@ class Reestablecer : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        usuarioApodo = findViewById(R.id.usuarioReestablecer)
-
-        val apodo = intent.getStringExtra("APODO") ?: "Usuario"
-        usuarioApodo.text = apodo
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

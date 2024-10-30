@@ -1,9 +1,10 @@
 data class Receta(
-    val nombre: String = "",
-    val imagenUrl: String = "",
-    val ingredientes: List<Map<String, String>> = emptyList(),
+    val nombreReceta: String = "",
     val dificultad: String = "",
-    val tiempo: String = "",
     val porciones: Int = 0,
-    val preparacion: String = ""
+    val tiempoPreparacion: Int = 0,
+    val preparacion: String = "",
+    val ingredientes: List<String> = emptyList(),
+    val cantidadIngredientes: List<String> = emptyList(),
+    val imagenUrl: String = "" // Si tienes URL de la imagen
 )
