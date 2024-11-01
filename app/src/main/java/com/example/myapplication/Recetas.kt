@@ -17,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationBarView
 import com.google.firebase.firestore.FirebaseFirestore
 
 class Recetas : AppCompatActivity() {
@@ -39,7 +40,26 @@ class Recetas : AppCompatActivity() {
 
         val bottom_bar = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottom_bar.selectedItemId = R.id.nav_inicio
-
+        bottom_bar.setOnItemSelectedListener() { item ->
+            when(item.itemId) {
+                R.id.nav_usuario -> {
+                    val intent = Intent(this, Usuario::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_inicio -> {
+                    val intent = Intent(this, Recetas::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_recetas_guardadas ->{
+                    val intent = Intent(this, RecetasGuardadas::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
+        }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -56,6 +76,8 @@ class Recetas : AppCompatActivity() {
             val intent = Intent(this, CalcularCalorias::class.java)
             startActivity(intent)
         }
+
+
 
     }
     private fun cargarRecetasFirebase() {

@@ -147,4 +147,8 @@
     <string name="recetas_guardadas">Recetas Guardadas</string>
     <string name="inicio">Inicio</string>
     <string name="usuario">Usuario</string>
+    <string name="atras">Atras</string>
+    <string name="fricas_de_pollo">Fricasé de pollo</string>
+    <string name="add">add</string>
+    <string name="imagenreceta">imagenReceta</string>
 </resources>
