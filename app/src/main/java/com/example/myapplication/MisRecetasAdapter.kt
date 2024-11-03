@@ -13,7 +13,7 @@ class MisRecetasAdapter(
 ) : RecyclerView.Adapter<MisRecetasAdapter.RecetaViewHolder>() {
 
     inner class RecetaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val nombre: TextView = itemView.findViewById(R.id.recetaNombre)
+        val nombre: TextView = itemView.findViewById(R.id.recetaNombreItem)
         val imagen: ImageView = itemView.findViewById(R.id.imgReceta)
 
         init {

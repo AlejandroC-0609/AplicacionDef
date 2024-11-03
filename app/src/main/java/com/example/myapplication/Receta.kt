@@ -5,6 +5,8 @@ data class Receta(
     val tiempoPreparacion: Int = 0,
     val preparacion: String = "",
     val ingredientes: List<String> = emptyList(),
-    val cantidadIngredientes: List<String> = emptyList(),
-    val imagenUrl: String = ""
+    val imagenUrl: String = "",
+    val recetaId: Int = 0,
+    val calorias: Int = 0
+
 )

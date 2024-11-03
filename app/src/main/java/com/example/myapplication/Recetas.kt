@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.MenuInflater
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -24,8 +25,13 @@ class Recetas : AppCompatActivity() {
 
     private val db = FirebaseFirestore.getInstance()
     private lateinit var recientementeAdapter: RecientementeAdapter
-    private val recetasRecientes = mutableListOf<Receta>()
     private lateinit var recyclerRecientemente : RecyclerView
+    private lateinit var MisRecetasAdapter: RecientementeAdapter
+    private lateinit var recyclerMisRecetas : RecyclerView
+    private val recetasRecientes = mutableListOf<Receta>()
+    private val misRecetas= mutableListOf<Receta>()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -33,10 +39,17 @@ class Recetas : AppCompatActivity() {
 
         recyclerRecientemente = findViewById<RecyclerView>(R.id.recyclerRecientemente)
         recientementeAdapter = RecientementeAdapter(recetasRecientes) { receta, view ->
-            mostrarMenuContextual(receta, view)
+            mostrarMenuContextualRecientes(receta, view)
         }
         recyclerRecientemente.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         recyclerRecientemente.adapter = recientementeAdapter
+
+        recyclerMisRecetas = findViewById(R.id.recyclerMisRecetas)
+        MisRecetasAdapter = RecientementeAdapter(misRecetas) { receta, view ->
+            mostrarMenuContextualMisRecetas(receta, view)
+        }
+        recyclerMisRecetas.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        recyclerMisRecetas.adapter = MisRecetasAdapter
 
         val bottom_bar = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottom_bar.selectedItemId = R.id.nav_inicio
@@ -66,10 +79,8 @@ class Recetas : AppCompatActivity() {
             insets
         }
 
-        cargarRecetasFirebase()
-
         verificarRecetasRecientes()
-
+        verificarMisRecetas()
 
         val calcularCalorias = findViewById<Button>(R.id.btnCalcularCalorias)
        calcularCalorias.setOnClickListener {
@@ -77,28 +88,17 @@ class Recetas : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val agregar = findViewById<ImageButton>(R.id.agregar)
+        agregar.setOnClickListener{
+            val intent = Intent(this, AgregarReceta::class.java)
+            startActivity(intent)
+        }
 
 
     }
-    private fun cargarRecetasFirebase() {
-        db.collection("datosDefault")
-            .get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    val receta = document.toObject(Receta::class.java)
-                    mostrarReceta(receta)
-                }
-            }
-            .addOnFailureListener { exception ->
-                Toast.makeText(this, "Error al cargar recetas: ${exception.message}", Toast.LENGTH_SHORT).show()
-            }
-    }
-    private fun mostrarReceta(receta: Receta) {
-        // Simular que el usuario revisa la receta
-        recientementeAdapter.agregarReceta(receta)
-        verificarRecetasRecientes()
-    }
 
+
+    // RECETAS RECIENTES
     private fun verificarRecetasRecientes() {
         val textoMensaje = findViewById<TextView>(R.id.textoRecientemente)
 
@@ -108,7 +108,15 @@ class Recetas : AppCompatActivity() {
             textoMensaje.visibility = View.GONE
         }
     }
-    private fun mostrarMenuContextual(receta: Receta, view: View) {
+
+    fun agregarRecetasRecientes(receta: Receta) {
+        if (recetasRecientes.size >= 3) {
+            recetasRecientes.removeAt(0)
+        }
+        recetasRecientes.add(receta)
+    }
+
+    private fun mostrarMenuContextualRecientes(receta: Receta, view: View) {
         val popup = PopupMenu(this, view)
         val inflater: MenuInflater = popup.menuInflater
         inflater.inflate(R.menu.menu_receta, popup.menu)
@@ -119,6 +127,8 @@ class Recetas : AppCompatActivity() {
                 }
                 R.id.eliminar -> {
                     recetasRecientes.remove(receta)
+                    recientementeAdapter.notifyDataSetChanged()
+                    verificarRecetasRecientes()
                     true
                 }
                 else -> false
@@ -126,4 +136,45 @@ class Recetas : AppCompatActivity() {
         }
         popup.show()
     }
+
+    //MIS RECETAS
+
+    private fun verificarMisRecetas() {
+        val textoMensaje = findViewById<TextView>(R.id.textoMisRecetas)
+
+        if (misRecetas.isEmpty()) {
+            textoMensaje.visibility = View.VISIBLE
+        } else {
+            textoMensaje.visibility = View.GONE
+        }
+    }
+    private fun agregarMisRecetas(receta: Receta) {
+        if (misRecetas.size >= 3) {
+            misRecetas.removeAt(0)
+        }
+        misRecetas.add(receta)
+        MisRecetasAdapter.notifyDataSetChanged()
+    }
+    private fun mostrarMenuContextualMisRecetas(receta: Receta, view: View) {
+        val popup = PopupMenu(this, view)
+        val inflater: MenuInflater = popup.menuInflater
+        inflater.inflate(R.menu.menu_receta_2, popup.menu)
+        popup.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.editar -> {
+                    true
+                }
+                R.id.eliminar -> {
+                    recetasRecientes.remove(receta)
+                    MisRecetasAdapter.notifyDataSetChanged()
+                    verificarRecetasRecientes()
+                    true
+                }
+                else -> false
+            }
+        }
+        popup.show()
+    }
+
+
 }
