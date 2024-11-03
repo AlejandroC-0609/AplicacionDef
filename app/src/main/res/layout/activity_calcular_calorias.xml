@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -44,7 +50,7 @@
             app:layout_constraintVertical_bias="0.112" />
 
         <EditText
-            android:id="@+id/editTextText8"
+            android:id="@+id/carnesNombreEditText"
             android:layout_width="240dp"
             android:layout_height="40dp"
             android:layout_marginTop="28dp"
@@ -150,11 +156,11 @@
             app:layout_constraintEnd_toStartOf="@+id/textView17"
             app:layout_constraintHorizontal_bias="0.114"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText9"
+            app:layout_constraintTop_toBottomOf="@+id/verdurasNombreEditText"
             app:layout_constraintVertical_bias="0.073" />
 
         <EditText
-            android:id="@+id/editTextText9"
+            android:id="@+id/verdurasNombreEditText"
             android:layout_width="240dp"
             android:layout_height="40dp"
             android:layout_marginTop="28dp"
@@ -170,7 +176,7 @@
             app:layout_constraintHorizontal_bias="0.181"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView23"
-            app:layout_constraintVertical_bias="0.009"
+            app:layout_constraintVertical_bias="0.005"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
@@ -184,11 +190,11 @@
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText12"
+            app:layout_constraintTop_toBottomOf="@+id/cerealesNombreEditText"
             tools:ignore="MissingConstraints" />
 
         <EditText
-            android:id="@+id/editTextText12"
+            android:id="@+id/cerealesNombreEditText"
             android:layout_width="240dp"
             android:layout_height="40dp"
             android:layout_marginTop="28dp"
@@ -219,11 +225,11 @@
             app:layout_constraintEnd_toStartOf="@+id/textView16"
             app:layout_constraintHorizontal_bias="0.126"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText8"
+            app:layout_constraintTop_toBottomOf="@+id/carnesNombreEditText"
             app:layout_constraintVertical_bias="0.041" />
 
         <EditText
-            android:id="@+id/editTextText10"
+            android:id="@+id/frutasNombreEditText"
             android:layout_width="240dp"
             android:layout_height="40dp"
             android:layout_marginTop="28dp"
@@ -254,11 +260,11 @@
             app:layout_constraintEnd_toStartOf="@+id/textView21"
             app:layout_constraintHorizontal_bias="0.121"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText10"
+            app:layout_constraintTop_toBottomOf="@+id/frutasNombreEditText"
             app:layout_constraintVertical_bias="0.133" />
 
         <EditText
-            android:id="@+id/editTextText11"
+            android:id="@+id/lacteosNombreEditText"
             android:layout_width="240dp"
             android:layout_height="40dp"
             android:layout_marginTop="28dp"
@@ -290,7 +296,7 @@
             app:layout_constraintEnd_toStartOf="@+id/textView22"
             app:layout_constraintHorizontal_bias="0.131"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText11"
+            app:layout_constraintTop_toBottomOf="@+id/lacteosNombreEditText"
             app:layout_constraintVertical_bias="0.211" />
 
         <EditText
@@ -385,11 +391,25 @@
             android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.991"
+            app:layout_constraintHorizontal_bias="0.967"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView22"
-            app:layout_constraintVertical_bias="0.153"
+            app:layout_constraintVertical_bias="0.135"
             tools:ignore="SpeakableTextPresentCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:elevation="8dp"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_navigation"
+        android:background="@color/naranja_oscuro"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"/>
+</RelativeLayout>

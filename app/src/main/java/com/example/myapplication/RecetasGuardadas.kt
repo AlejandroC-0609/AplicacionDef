@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import com.example.myapplication.Usuario
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

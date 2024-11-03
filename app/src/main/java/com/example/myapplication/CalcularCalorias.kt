@@ -17,26 +17,29 @@ class CalcularCalorias : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_calcular_calorias)
 
-        // Configuración de márgenes del sistema
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // Referencias a los campos de EditText
+        // Referencias a los campos de EditText para calorías y nombres
         val carnesEditText = findViewById<EditText>(R.id.carnesEditText)
         val verdurasEditText = findViewById<EditText>(R.id.verdurasEditText)
         val frutasEditText = findViewById<EditText>(R.id.frutasEditText)
         val lacteosEditText = findViewById<EditText>(R.id.lacteosEditText)
         val cerealesEditText = findViewById<EditText>(R.id.cerealesEditText)
 
-        // Referencia al botón de calcular
+        val carnesNombreEditText = findViewById<EditText>(R.id.carnesNombreEditText)
+        val verdurasNombreEditText = findViewById<EditText>(R.id.verdurasNombreEditText)
+        val frutasNombreEditText = findViewById<EditText>(R.id.frutasNombreEditText)
+        val lacteosNombreEditText = findViewById<EditText>(R.id.lacteosNombreEditText)
+        val cerealesNombreEditText = findViewById<EditText>(R.id.cerealesNombreEditText)
+
         val calcularButton = findViewById<Button>(R.id.calcularButton)
 
-        // Configurar el listener para el botón
         calcularButton.setOnClickListener {
-            // Obtener y convertir los valores ingresados en cada campo, asignando 0 si están vacíos
+            // Obtener calorías y manejar entradas inválidas con un valor por defecto de 0
             val carnesCalories = carnesEditText.text.toString().toIntOrNull() ?: 0
             val verdurasCalories = verdurasEditText.text.toString().toIntOrNull() ?: 0
             val frutasCalories = frutasEditText.text.toString().toIntOrNull() ?: 0
@@ -46,9 +49,21 @@ class CalcularCalorias : AppCompatActivity() {
             // Calcular el total de calorías
             val totalCalories = carnesCalories + verdurasCalories + frutasCalories + lacteosCalories + cerealesCalories
 
-            // Crear el Intent para abrir la segunda actividad y pasar el total de calorías
-            val intent = Intent(this, CaloriasResultados::class.java) // Cambiado a CaloriasResultados
-            intent.putExtra("TOTAL_CALORIES", totalCalories)
+            // Preparar Intent con los datos a pasar a la siguiente actividad
+            val intent = Intent(this, CaloriasResultados::class.java).apply {
+                putExtra("TOTAL_CALORIES", totalCalories)
+                putExtra("CARNES_NOMBRE", carnesNombreEditText.text.toString())
+                putExtra("VERDURAS_NOMBRE", verdurasNombreEditText.text.toString())
+                putExtra("FRUTAS_NOMBRE", frutasNombreEditText.text.toString())
+                putExtra("LACTEOS_NOMBRE", lacteosNombreEditText.text.toString())
+                putExtra("CEREALES_NOMBRE", cerealesNombreEditText.text.toString())
+                putExtra("CARNES_CALORIAS", carnesCalories)
+                putExtra("VERDURAS_CALORIAS", verdurasCalories)
+                putExtra("FRUTAS_CALORIAS", frutasCalories)
+                putExtra("LACTEOS_CALORIAS", lacteosCalories)
+                putExtra("CEREALES_CALORIAS", cerealesCalories)
+            }
+
             startActivity(intent)
         }
     }
