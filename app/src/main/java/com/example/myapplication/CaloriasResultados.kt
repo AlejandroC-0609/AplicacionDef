@@ -11,7 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class CaloriasResultados : AppCompatActivity() {
-    private var totalCalories = 0  // Variable para almacenar el total de calorías
+    private var totalCalories = 0
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +30,6 @@ class CaloriasResultados : AppCompatActivity() {
         val totalCaloriesTextView = findViewById<TextView>(R.id.totalCaloriesTextView)
         totalCaloriesTextView.text = "$totalCalories Kcal"
 
-        // Mostrar información de cada tipo de alimento
         findViewById<TextView>(R.id.carnesTextView).text =
             "Carnes: ${intent.getStringExtra("CARNES_NOMBRE")} - ${intent.getIntExtra("CARNES_CALORIAS", 0)} gr"
 
@@ -46,13 +45,12 @@ class CaloriasResultados : AppCompatActivity() {
         findViewById<TextView>(R.id.cerealesTextView).text =
             "Cereales: ${intent.getStringExtra("CEREALES_NOMBRE")} - ${intent.getIntExtra("CEREALES_CALORIAS", 0)} gr"
 
-        // Configura el botón para regresar a la actividad Usuario
-        val backButton = findViewById<Button>(R.id.btnAgregarCalorias) // Asegúrate de tener un botón en tu layout
+        val backButton = findViewById<Button>(R.id.btnAgregarCalorias)
         backButton.setOnClickListener {
-            val caloriasDiarias = totalCalories // Asume que esto es lo que quieres enviar
+            val caloriasDiarias = totalCalories
             val intent = Intent(this, Usuario::class.java).apply {
-                putExtra("TOTAL_CALORIES_TODAY", caloriasDiarias) // Envía las calorías de hoy
-                putExtra("TOTAL_CALORIES_WEEK", totalCalories * 7) // Ejemplo de cálculo para la semana
+                putExtra("TOTAL_CALORIES_TODAY", caloriasDiarias)
+                putExtra("TOTAL_CALORIES_WEEK", totalCalories * 7)
             }
             startActivity(intent)
         }

@@ -23,7 +23,6 @@ class CalcularCalorias : AppCompatActivity() {
             insets
         }
 
-        // Referencias a los campos de EditText para calorías y nombres
         val carnesEditText = findViewById<EditText>(R.id.carnesEditText)
         val verdurasEditText = findViewById<EditText>(R.id.verdurasEditText)
         val frutasEditText = findViewById<EditText>(R.id.frutasEditText)
@@ -39,17 +38,14 @@ class CalcularCalorias : AppCompatActivity() {
         val calcularButton = findViewById<Button>(R.id.calcularButton)
 
         calcularButton.setOnClickListener {
-            // Obtener calorías y manejar entradas inválidas con un valor por defecto de 0
             val carnesCalories = carnesEditText.text.toString().toIntOrNull() ?: 0
             val verdurasCalories = verdurasEditText.text.toString().toIntOrNull() ?: 0
             val frutasCalories = frutasEditText.text.toString().toIntOrNull() ?: 0
             val lacteosCalories = lacteosEditText.text.toString().toIntOrNull() ?: 0
             val cerealesCalories = cerealesEditText.text.toString().toIntOrNull() ?: 0
 
-            // Calcular el total de calorías
             val totalCalories = carnesCalories + verdurasCalories + frutasCalories + lacteosCalories + cerealesCalories
 
-            // Preparar Intent con los datos a pasar a la siguiente actividad
             val intent = Intent(this, CaloriasResultados::class.java).apply {
                 putExtra("TOTAL_CALORIES", totalCalories)
                 putExtra("CARNES_NOMBRE", carnesNombreEditText.text.toString())
