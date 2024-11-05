@@ -40,5 +40,14 @@ Plataforma: Android Studio<br>
 
 ---
 
+## **🚧 En Desarrollo**<br>
+El proyecto Frugal Feast actualmente se encuentra en fase de desarrollo. Estamos trabajando arduamente en la implementación de características clave que permitirán a los usuarios disfrutar de una experiencia culinaria innovadora y práctica.
+
+---
+
 ## **🤝 Contribuciones**<br>
 Las contribuciones son bienvenidas. Si deseas colaborar, por favor abre un "issue" o envía un "pull request".
+
+## **👥 Autores**<br>
+Johan Alejandro Carrillo - Desarrollador <br>
+Miguel Santa Maria - Desarrollador
