@@ -8,7 +8,9 @@ import android.view.MenuInflater
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.SearchView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
@@ -18,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.toObject
 
 class Recetas : AppCompatActivity() {
 
@@ -35,7 +38,7 @@ class Recetas : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.fragment_recetas1)
 
-        recyclerRecientemente = findViewById<RecyclerView>(R.id.recyclerRecientemente)
+        recyclerRecientemente = findViewById(R.id.recyclerRecientemente)
         recientementeAdapter = RecientementeAdapter(recetasRecientes) { receta, view ->
             mostrarMenuContextualRecientes(receta, view)
         }
@@ -92,7 +95,45 @@ class Recetas : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val searchView = findViewById<SearchView>(R.id.buscarRecetaBar)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (!query.isNullOrEmpty()) {
+                    buscarRecetaPorNombre(query)
+                }
+                return true
+            }
 
+            override fun onQueryTextChange(query: String?): Boolean {
+                return false
+            }
+
+
+        })
+
+    }
+
+    //BUSQUEDA
+    private fun buscarRecetaPorNombre(nombre: String) {
+        val nombre =  nombre.lowercase()
+
+        db.collection("datosDefault")
+            .whereEqualTo("nombreReceta", nombre)
+            .whereLessThanOrEqualTo("nombreReceta", nombre + "\uf8ff")
+            .get()
+            .addOnSuccessListener { documents ->
+                val recetasEncontradas = mutableListOf<Receta>()
+                for (document in documents) {
+                    val receta = document.toObject<Receta>()
+                    recetasEncontradas.add(receta)
+                }
+                val intent = Intent(this, ResultadosBusqueda::class.java)
+                intent.putExtra("query", nombre)
+                startActivity(intent)
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Error cargando recetas: $e", Toast.LENGTH_SHORT).show()
+            }
     }
 
 
@@ -125,7 +166,6 @@ class Recetas : AppCompatActivity() {
                 }
                 R.id.eliminar -> {
                     recetasRecientes.remove(receta)
-                    recientementeAdapter.notifyDataSetChanged()
                     verificarRecetasRecientes()
                     true
                 }
@@ -151,7 +191,6 @@ class Recetas : AppCompatActivity() {
             misRecetas.removeAt(0)
         }
         misRecetas.add(receta)
-        MisRecetasAdapter.notifyDataSetChanged()
     }
     private fun mostrarMenuContextualMisRecetas(receta: Receta, view: View) {
         val popup = PopupMenu(this, view)
@@ -164,7 +203,6 @@ class Recetas : AppCompatActivity() {
                 }
                 R.id.eliminar -> {
                     recetasRecientes.remove(receta)
-                    MisRecetasAdapter.notifyDataSetChanged()
                     verificarRecetasRecientes()
                     true
                 }

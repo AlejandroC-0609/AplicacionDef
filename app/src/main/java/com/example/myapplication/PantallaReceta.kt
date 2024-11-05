@@ -13,7 +13,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class PantallaReceta : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
-    private lateinit var recetaId: Number
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
