@@ -1,12 +1,13 @@
 🌟 Frugal Feast
 
 📚 Tabla de Contenido
-Descripción
-Características Principales
-Tecnologías Utilizadas
-Cómo Ejecutarlo
-Contribuciones
-Licencia
+- [Descripción](#descripción)
+- [Características Principales](#características-principales)
+- [Tecnologías Utilizadas](#tecnologías-utilizadas)
+- [Cómo Ejecutarlo](#cómo-ejecutarlo)
+- [Contribuciones](#contribuciones)
+- [Licencia](#licencia)
+
 
 🥘 Descripción
 "Frugal Feast" es una aplicación innovadora diseñada para ayudar a los amantes de la cocina a crear una fiesta de sabores utilizando los ingredientes disponibles en su despensa. Sabemos que cocinar puede ser un desafío, especialmente cuando se tiene poco tiempo y pocos ingredientes, pero con nuestra app, cocinar se convertirá en un placer.
@@ -23,3 +24,7 @@ Lenguaje de Programación: Kotlin
 Plataforma: Android Studio
 
 🚀 Cómo Ejecutarlo
+1. Clona este repositorio en tu máquina local.
+git clone https://github.com/tu-usuario/frugal-feast.git
+2. Abre el proyecto en Android Studio.
+3. Compila y ejecuta la aplicación en un emulador o dispositivo Android.
