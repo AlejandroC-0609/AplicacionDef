@@ -42,7 +42,6 @@ class Reestablecer : AppCompatActivity() {
     }
 
 
-
     private fun reestablecerContraseña() {
         val email = findViewById<EditText>(R.id.correoCampoContra).text.toString().trim()
 

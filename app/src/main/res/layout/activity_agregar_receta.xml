@@ -27,11 +27,13 @@
                 android:id="@+id/atras"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:backgroundTint="#00FFFFFF"
                 android:contentDescription="@string/atras"
                 android:scaleType="centerCrop"
                 android:src="@drawable/baseline_arrow_circle_left_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -265,12 +267,13 @@
                 android:id="@+id/tiempotexto"
                 android:layout_width="101dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="28dp"
                 android:text="@string/tiempo_de_preparaci_n_horas"
                 android:textColor="#905708"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.122"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/agregarIngrediente" />
 

@@ -3,6 +3,7 @@ package com.example.myapplication
 import com.example.myapplication.Usuario
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -40,6 +41,10 @@ class RecetasGuardadas : AppCompatActivity() {
                 }
                 else -> false
             }
+        }
+        val botonAtras = findViewById<ImageButton>(R.id.button12)
+        botonAtras.setOnClickListener {
+            finish()
         }
     }
 }

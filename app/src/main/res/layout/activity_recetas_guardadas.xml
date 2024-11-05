@@ -15,20 +15,19 @@
                 android:layout_height="wrap_content"
                 android:background="@color/naranja_claro">
 
-                    <Button
+                    <ImageButton
                         android:id="@+id/button12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/atras"
-                        android:backgroundTint="@color/naranja_oscuro"
-                        android:textColor="#FFFFFF"
-                        android:textSize="18sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="#00FFFFFF"
+                        android:contentDescription="@string/atras"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/baseline_arrow_circle_left_24"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.05"
+                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.023" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/textView67"

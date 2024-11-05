@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -53,6 +54,9 @@ class CaloriasResultados : AppCompatActivity() {
                 putExtra("TOTAL_CALORIES_WEEK", totalCalories * 7)
             }
             startActivity(intent)
+        }
+        findViewById<ImageButton>(R.id.button11).setOnClickListener {
+            onBackPressed() // Cierra la actividad actual y vuelve a la anterior
         }
     }
 }

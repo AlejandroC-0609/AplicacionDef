@@ -1,13 +1,15 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.widget.EditText
-import android.widget.ImageView
+import android.widget.*
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.storage.FirebaseStorage
+import java.util.*
 
 class AgregarReceta : AppCompatActivity() {
 
@@ -16,7 +18,7 @@ class AgregarReceta : AppCompatActivity() {
     private lateinit var preparacion: EditText
     private lateinit var ingrediente: EditText
     private val listaIngredientes = mutableListOf<String>()
-    private var imageUrl: Uri? = null
+    private var imageUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,34 +29,39 @@ class AgregarReceta : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-    }
-}
-    /*
-        imgRecipe = findViewById(R.id.imgRecipe)
-        edtRecipeName = findViewById(R.id.edtRecipeName)
-        edtPreparation = findViewById(R.id.edtPreparation)
-        edtIngredient = findViewById(R.id.edtIngredient)
+
+        imgReceta = findViewById(R.id.imageView32)
+        nombreReceta = findViewById(R.id.nombreCampoAgregar)
+        preparacion = findViewById(R.id.preparacionCampoAgregar)
+        ingrediente = findViewById(R.id.ingrediente1)
+        ingrediente = findViewById(R.id.ingrediente2)
+        ingrediente = findViewById(R.id.ingrediente3)
+
 
         // Botón para seleccionar imagen
-        findViewById<Button>(R.id.btnAddImage).setOnClickListener {
+        findViewById<Button>(R.id.agregarImagen).setOnClickListener {
             selectImageFromGallery()
         }
 
         // Botón para agregar ingrediente
-        findViewById<Button>(R.id.btnAddIngredient).setOnClickListener {
-            val ingredient = edtIngredient.text.toString()
-            if (ingredient.isNotEmpty()) {
-                ingredientList.add(ingredient)
-                edtIngredient.text.clear()
+        findViewById<Button>(R.id.agregarIngrediente).setOnClickListener {
+            val ingredienteTexto = ingrediente.text.toString()
+            if (ingredienteTexto.isNotEmpty()) {
+                listaIngredientes.add(ingredienteTexto)
+                ingrediente.text.clear()
             }
         }
 
         // Botón para guardar la receta
-        findViewById<Button>(R.id.btnSaveRecipe).setOnClickListener {
+        findViewById<Button>(R.id.button6).setOnClickListener {
             saveRecipeToFirebase()
         }
-    }
 
+        // Botón de "atrás"
+        findViewById<ImageButton>(R.id.atras).setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+    }
 
     private fun selectImageFromGallery() {
         val intent = Intent(Intent.ACTION_PICK)
@@ -66,13 +73,13 @@ class AgregarReceta : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == IMAGE_PICK_CODE && resultCode == RESULT_OK) {
             imageUri = data?.data
-            imgRecipe.setImageURI(imageUri)
+            imgReceta.setImageURI(imageUri)
         }
     }
 
     private fun saveRecipeToFirebase() {
-        val recipeName = edtRecipeName.text.toString()
-        val preparation = edtPreparation.text.toString()
+        val recipeName = nombreReceta.text.toString()
+        val preparation = preparacion.text.toString()
 
         if (recipeName.isEmpty() || preparation.isEmpty() || imageUri == null) {
             Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
@@ -81,9 +88,8 @@ class AgregarReceta : AppCompatActivity() {
 
         val storageRef = FirebaseStorage.getInstance().reference.child("recipe_images/${UUID.randomUUID()}")
 
-
         // Subir la imagen a Firebase Storage
-        imageUrl?.let {
+        imageUri?.let {
             storageRef.putFile(it)
                 .addOnSuccessListener { taskSnapshot ->
                     taskSnapshot.storage.downloadUrl.addOnSuccessListener { uri ->
@@ -91,19 +97,20 @@ class AgregarReceta : AppCompatActivity() {
                         val recipeData = hashMapOf(
                             "name" to recipeName,
                             "preparation" to preparation,
-                            "ingredients" to ingredientList,
+                            "ingredients" to listaIngredientes,
                             "imageUrl" to uri.toString()
                         )
 
-                        firestore.collection("recipes")
-                            .add(recipeData)
-                            .addOnSuccessListener {
-                                Toast.makeText(this, "Receta guardada exitosamente", Toast.LENGTH_SHORT).show()
-                                finish()
-                            }
-                            .addOnFailureListener { e ->
-                                Toast.makeText(this, "Error al guardar la receta: ${e.message}", Toast.LENGTH_SHORT).show()
-                            }
+                        // Reemplaza `firestore.collection("recipes")` con tu lógica de Firestore
+                        // firestore.collection("recipes")
+                        //     .add(recipeData)
+                        //     .addOnSuccessListener {
+                        //         Toast.makeText(this, "Receta guardada exitosamente", Toast.LENGTH_SHORT).show()
+                        //         finish()
+                        //     }
+                        //     .addOnFailureListener { e ->
+                        //         Toast.makeText(this, "Error al guardar la receta: ${e.message}", Toast.LENGTH_SHORT).show()
+                        //     }
                     }
                 }
                 .addOnFailureListener { e ->
@@ -115,4 +122,4 @@ class AgregarReceta : AppCompatActivity() {
     companion object {
         private const val IMAGE_PICK_CODE = 1000
     }
-}*/
+}
