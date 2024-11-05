@@ -34,22 +34,22 @@ class Configuracion_y_privacidad : AppCompatActivity() {
         }
         val botonidi = findViewById<Button>(R.id.button10)
         botonidi.setOnClickListener {
-            val intent = Intent(this, Configuracion_y_privacidad::class.java)
+            val intent = Intent(this, Idioma::class.java)
             startActivity(intent)
         }
         val botonso = findViewById<Button>(R.id.button15)
         botonso.setOnClickListener {
-            val intent = Intent(this, Configuracion_y_privacidad::class.java)
+            val intent = Intent(this, SobreApp::class.java)
             startActivity(intent)
         }
         val botoncon = findViewById<Button>(R.id.button16)
         botoncon.setOnClickListener {
-            val intent = Intent(this, Configuracion_y_privacidad::class.java)
+            val intent = Intent(this, Contactos::class.java)
             startActivity(intent)
         }
         val botonel = findViewById<Button>(R.id.button17)
         botonel.setOnClickListener {
-            val intent = Intent(this, Configuracion_y_privacidad::class.java)
+            val intent = Intent(this, Eliminar_Cuenta::class.java)
             startActivity(intent)
         }
     }
