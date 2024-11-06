@@ -388,14 +388,14 @@
                 android:id="@+id/calcularButton"
                 android:layout_width="234dp"
                 android:layout_height="64dp"
+                android:layout_marginTop="20dp"
                 android:backgroundTint="@color/naranja_oscuro"
                 android:text="Agregar Caloarias a Usuario"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.61"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cerealesNombreEditText"
                 tools:ignore="MissingConstraints" />
 
 
