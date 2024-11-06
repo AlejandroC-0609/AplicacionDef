@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.toObject
+import com.google.firebase.firestore.ktx.toObject
 
 class MisRecetas : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
