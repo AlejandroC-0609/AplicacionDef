@@ -19,6 +19,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.toObject
 
@@ -59,29 +60,35 @@ class Recetas : AppCompatActivity() {
                 R.id.nav_usuario -> {
                     val intent = Intent(this, Usuario::class.java)
                     startActivity(intent)
+                    finish()
                     true
                 }
                 R.id.nav_inicio -> {
                     val intent = Intent(this, Recetas::class.java)
                     startActivity(intent)
+                    finish()
                     true
                 }
                 R.id.nav_recetas_guardadas ->{
                     val intent = Intent(this, RecetasGuardadas::class.java)
                     startActivity(intent)
+                    finish()
                     true
                 }
                 else -> false
             }
         }
+
+        cargarRecetasRecientes()
+        verificarRecetasRecientes()
+        cargarMisRecetas()
+        verificarMisRecetas()
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        verificarRecetasRecientes()
-        verificarMisRecetas()
 
         val calcularCalorias = findViewById<Button>(R.id.btnCalcularCalorias)
        calcularCalorias.setOnClickListener {
@@ -148,12 +155,39 @@ class Recetas : AppCompatActivity() {
         }
     }
 
-    fun agregarRecetasRecientes(receta: Receta) {
-        if (recetasRecientes.size >= 3) {
-            recetasRecientes.removeAt(0)
-        }
-        recetasRecientes.add(receta)
+    private fun cargarRecetasRecientes() {
+        db.collection("usuarios").document(FirebaseAuth.getInstance().currentUser?.uid ?: return)
+            .collection("recetasRecientes")
+            .limit(3)
+            .get()
+            .addOnSuccessListener { documents ->
+                recetasRecientes.clear()
+                for (document in documents) {
+                    val receta = document.toObject<Receta>()
+                    recetasRecientes.add(receta)
+                }
+                verificarRecetasRecientes()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Error al cargar recetas recientes: $e", Toast.LENGTH_SHORT).show()
+            }
     }
+
+
+    private fun guardarRecetaEnFirebase(receta: Receta) {
+        val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return
+
+        db.collection("usuarios").document(userId).collection("recetasGuardadas")
+            .add(receta)
+            .addOnSuccessListener {
+                Toast.makeText(this, "Receta guardada exitosamente", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Error al guardar la receta: $e", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+
 
     private fun mostrarMenuContextualRecientes(receta: Receta, view: View) {
         val popup = PopupMenu(this, view)
@@ -162,6 +196,7 @@ class Recetas : AppCompatActivity() {
         popup.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.guardar -> {
+                    guardarRecetaEnFirebase(receta)
                     true
                 }
                 R.id.eliminar -> {
@@ -186,12 +221,6 @@ class Recetas : AppCompatActivity() {
             textoMensaje.visibility = View.GONE
         }
     }
-    private fun agregarMisRecetas(receta: Receta) {
-        if (misRecetas.size >= 3) {
-            misRecetas.removeAt(0)
-        }
-        misRecetas.add(receta)
-    }
     private fun mostrarMenuContextualMisRecetas(receta: Receta, view: View) {
         val popup = PopupMenu(this, view)
         val inflater: MenuInflater = popup.menuInflater
@@ -211,6 +240,24 @@ class Recetas : AppCompatActivity() {
         }
         popup.show()
     }
+    fun cargarMisRecetas() {
+        db.collection("usuarios").document(FirebaseAuth.getInstance().currentUser?.uid ?: return)
+            .collection("recetasGuardadas")
+            .limit(3)
+            .get()
+            .addOnSuccessListener { documents ->
+                recetasRecientes.clear()
+                for (document in documents) {
+                    val receta = document.toObject<Receta>()
+                    recetasRecientes.add(receta)
+                }
+                verificarRecetasRecientes()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Error al cargar recetas recientes: $e", Toast.LENGTH_SHORT).show()
+            }
+    }
+
 
 
 }

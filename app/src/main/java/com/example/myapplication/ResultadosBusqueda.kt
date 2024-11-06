@@ -4,6 +4,7 @@ import Receta
 import android.content.Intent
 import android.widget.Toast
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.SearchView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -29,6 +30,11 @@ class ResultadosBusqueda : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val atras = findViewById<ImageButton>(R.id.atras)
+        atras.setOnClickListener{
+            onBackPressedDispatcher.onBackPressed()
+        }
         val searchView = findViewById<SearchView>(R.id.buscarRecetaBar)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -46,6 +52,7 @@ class ResultadosBusqueda : AppCompatActivity() {
         val query = intent.getStringExtra("query")
         if (!query.isNullOrEmpty()) {
             searchView.setQuery(query, false)
+            searchView.     queryHint = query
             buscarRecetas(query)
         }
     }

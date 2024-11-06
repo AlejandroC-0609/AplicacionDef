@@ -45,10 +45,10 @@
                 app:srcCompat="@drawable/usuario" />
 
             <TextView
-                android:id="@+id/textView32"
+                android:id="@+id/usuario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Usuario Frugal Feast"
+                android:text="@string/usuario_frugal_feast"
                 android:gravity="center"
                 android:textColor="#FFFFFF"
                 android:textSize="35sp"
@@ -59,93 +59,87 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView20"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <ImageView
-                android:id="@+id/imageView21"
-                android:layout_width="68dp"
-                android:layout_height="68dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView22"
-                app:layout_constraintHorizontal_bias="0.466"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView32"
-                app:layout_constraintVertical_bias="0.069"
-                app:srcCompat="@drawable/gorro_chef" />
-
-            <ImageView
-                android:id="@+id/imageView22"
-                android:layout_width="68dp"
-                android:layout_height="68dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView32"
-                app:layout_constraintVertical_bias="0.068"
-                app:srcCompat="@drawable/guardado" />
-
-            <ImageView
-                android:id="@+id/imageView23"
-                android:layout_width="68dp"
-                android:layout_height="68dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView22"
-                app:layout_constraintTop_toBottomOf="@+id/textView32"
-                app:layout_constraintVertical_bias="0.068"
-                app:srcCompat="@drawable/vistas" />
-
-            <TextView
-                android:id="@+id/textView33"
+            <LinearLayout
+                android:id="@+id/containerMisRecetas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
                 android:gravity="center"
-                android:text="Mis Recetas"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp"
-                android:textStyle="italic|bold"
+                android:padding="5dp"
+                android:background="@drawable/rounded_container"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView34"
-                app:layout_constraintHorizontal_bias="0.45"
+                app:layout_constraintEnd_toStartOf="@+id/containerGuardadas"
+                app:layout_constraintHorizontal_bias="0.21"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView21"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/usuario"
+                app:layout_constraintVertical_bias="0.068">
+                <ImageView
+                    android:id="@+id/imageView21"
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    app:srcCompat="@drawable/gorro_chef" />
+                <TextView
+                    android:id="@+id/textView33"
+                    android:layout_width="68dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/mis_recetas1"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:textStyle="italic|bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/textView34"
+                    app:layout_constraintHorizontal_bias="0.209"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView21"
+                    app:layout_constraintVertical_bias="0.0" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView34"
+            <LinearLayout
+                android:id="@+id/containerGuardadas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Guardados"
+                android:layout_weight="1"
+                android:orientation="vertical"
                 android:gravity="center"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp"
-                android:textStyle="italic|bold"
+                android:padding="5dp"
+                android:background="@drawable/rounded_container"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.862"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView22"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/usuario"
+                app:layout_constraintVertical_bias="0.096">
+                <ImageView
+                    android:id="@+id/imageView22"
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    app:srcCompat="@drawable/guardado" />
 
-            <TextView
-                android:id="@+id/textView35"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Vistas"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp"
-                android:textStyle="italic|bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView34"
-                app:layout_constraintTop_toBottomOf="@+id/imageView23"
-                app:layout_constraintVertical_bias="0.0" />
-
+                <TextView
+                    android:id="@+id/textView34"
+                    android:layout_width="68dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/guardados"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:textStyle="italic|bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.862"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView22"
+                    app:layout_constraintVertical_bias="0.0" />
+            </LinearLayout>
             <TextView
                 android:id="@+id/textView36"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Estadisticas"
+                android:layout_marginTop="30dp"
+                android:text="@string/estadisticas"
                 android:textColor="#905708"
                 android:textSize="35sp"
                 android:textStyle="italic|bold"
@@ -153,15 +147,18 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.04"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView33"
+                app:layout_constraintTop_toBottomOf="@+id/containerMisRecetas"
                 app:layout_constraintVertical_bias="0.064" />
 
             <TextView
                 android:id="@+id/textView37"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/rounded_container"
                 android:gravity="center"
-                android:text="Mis calorías de hoy:"
+                android:padding="8dp"
+                android:text="@string/mis_calor_as_de_hoy"
                 android:textColor="#FFFFFF"
                 android:textSize="25sp"
                 android:textStyle="italic|normal"
@@ -178,9 +175,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="44dp"
                 android:gravity="center"
-                android:text="Mis calorías semanales:"
+                android:padding="8dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_container"
+                android:text="@string/mis_calor_as_semanales"
                 android:textColor="#FFFFFF"
-                android:textSize="25sp"
+                android:textSize="22sp"
                 android:textStyle="italic|normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -194,6 +194,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
                 android:gravity="center"
                 android:text="2000kcal"
                 android:textColor="#FFFFFF"
@@ -201,10 +202,8 @@
                 android:textStyle="italic|normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.948"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView36"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.226" />
 
             <TextView
                 android:id="@+id/caloriasSemanalesTextView"
@@ -217,10 +216,10 @@
                 android:textStyle="italic|normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.932"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.563"
+                app:layout_constraintStart_toEndOf="@+id/textView38"
                 app:layout_constraintTop_toBottomOf="@+id/caloriasDiariasTextView"
-                app:layout_constraintVertical_bias="0.217" />
+                app:layout_constraintVertical_bias="0.253" />
 
             <ImageButton
                 android:id="@+id/imageView19"
@@ -231,7 +230,7 @@
                 app:layout_constraintHorizontal_bias="0.953"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/opciones" />
+                android:src="@drawable/opciones" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

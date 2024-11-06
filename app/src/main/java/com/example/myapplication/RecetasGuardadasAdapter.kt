@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.myapplication.R
 
-class MisRecetasAdapter(private val recetas: List<Receta>) : RecyclerView.Adapter<MisRecetasAdapter.RecetaViewHolder>() {
+class RecetasGuardadasAdapter(private val recetas: List<Receta>) : RecyclerView.Adapter<RecetasGuardadasAdapter.RecetaViewHolder>() {
 
     inner class RecetaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nombreReceta: TextView = itemView.findViewById(R.id.recetaNombreChiquito)

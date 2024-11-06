@@ -165,4 +165,11 @@
     <string name="lista_de_ingredientes">lista de ingredientes...</string>
     <string name="tiempo_de_preparaci_n_horas">Tiempo de preparación: (Horas)</string>
     <string name="dificultad2">Dificultad:</string>
+    <string name="calorias">Calorias:</string>
+    <string name="mis_recetas">Mis Recetas</string>
+    <string name="guardados">Guardados</string>
+    <string name="mis_calor_as_semanales">Mis calorías semanales:</string>
+    <string name="mis_calor_as_de_hoy">Mis calorías de hoy:</string>
+    <string name="estadisticas">Estadisticas</string>
+    <string name="usuario_frugal_feast">Usuario Frugal Feast</string>
 </resources>

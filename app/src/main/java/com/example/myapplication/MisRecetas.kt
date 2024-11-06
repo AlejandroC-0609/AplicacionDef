@@ -1,11 +1,9 @@
 package com.example.myapplication
 
+import MisRecetasAdapter
 import Receta
-import RecetasGuardadasAdapter
-import com.example.myapplication.Usuario
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -18,31 +16,33 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.toObject
 
-class RecetasGuardadas : AppCompatActivity() {
+class MisRecetas : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
-    private lateinit var recyclerGuardadas: RecyclerView
-    private lateinit var adapterGuardadas: RecetasGuardadasAdapter
-    private val recetasGuardadas = mutableListOf<Receta>()
+    private lateinit var recyclerMisRecetas: RecyclerView
+    private lateinit var adapterMisRecetas: MisRecetasAdapter
+    private val misRecetas = mutableListOf<Receta>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_recetas_guardadas)
+        setContentView(R.layout.activity_mis_recetas)
 
-        recyclerGuardadas = findViewById(R.id.recyclerRecetasGuardadas)
-        recyclerGuardadas.layoutManager = LinearLayoutManager(this)
+        recyclerMisRecetas = findViewById(R.id.recyclerMisRecetas)
+        recyclerMisRecetas.layoutManager = LinearLayoutManager(this)
 
-        recyclerGuardadas.adapter = adapterGuardadas
+        recyclerMisRecetas.adapter = adapterMisRecetas
 
-        cargarRecetasGuardadas()
+
+        cargarMisRecetas()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         val bottom_bar = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        bottom_bar.selectedItemId = R.id.nav_recetas_guardadas
+        bottom_bar.selectedItemId = R.id.nav_usuario
         bottom_bar.setOnItemSelectedListener() { item ->
             when(item.itemId) {
                 R.id.nav_usuario -> {
@@ -63,20 +63,17 @@ class RecetasGuardadas : AppCompatActivity() {
                 else -> false
             }
         }
-
-
-
     }
-    private fun cargarRecetasGuardadas() {
+    private fun cargarMisRecetas() {
         val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return
 
-        db.collection("usuarios").document(userId).collection("recetasGuardadas")
+        db.collection("usuarios").document(userId).collection("MisRecetas")
             .get()
             .addOnSuccessListener { documents ->
-                recetasGuardadas.clear()
+                misRecetas.clear()
                 for (document in documents) {
                     val receta = document.toObject<Receta>()
-                    recetasGuardadas.add(receta)
+                    misRecetas.add(receta)
                 }
             }
             .addOnFailureListener { e ->

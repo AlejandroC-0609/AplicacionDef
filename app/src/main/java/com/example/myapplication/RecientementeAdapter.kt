@@ -42,11 +42,4 @@ class RecientementeAdapter(
     override fun getItemCount(): Int = recetas.size
 
 
-    fun agregarReceta(receta: Receta) {
-        if (recetas.size == 3) {
-            recetas.removeAt(2)
-        }
-        recetas.add(0, receta)
-
-    }
 }

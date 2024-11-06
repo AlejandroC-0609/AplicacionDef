@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class PantallaReceta : AppCompatActivity() {
@@ -56,15 +57,42 @@ class PantallaReceta : AppCompatActivity() {
                     findViewById<TextView>(R.id.recetaPreparacion).text = recetaPreparacion
                     findViewById<TextView>(R.id.recetaPorciones).text = recetaPorciones
                     if (recetaIngredientes != null) {
-                        findViewById<TextView>(R.id.recetaIngredientes).text =  recetaIngredientes.joinToString("\n") { "• $it" }
+                        findViewById<TextView>(R.id.recetaIngredientes).text =
+                            recetaIngredientes.joinToString("\n") { "• $it" }
                     }
                     findViewById<TextView>(R.id.recetaTiempo).text = recetaTiempo
                     findViewById<TextView>(R.id.recetaDificultad).text = recetaDificultad
                     findViewById<TextView>(R.id.recetaCalorias).text = recetaCalorias
                     Glide.with(this).load(recetaImagenUrl).into(findViewById(R.id.recetaImagen))
 
-                    agregarRecetaRecientementeVista(recetaId)
-                } else {
+                    val recetaData = hashMapOf(
+                        "recetaId" to recetaId,
+                        "nombreReceta" to recetaNombre,
+                        "dificultad" to recetaDificultad,
+                        "porciones" to recetaPorciones,
+                        "tiempoPreparacion" to recetaTiempo,
+                        "preparacion" to recetaPreparacion,
+                        "ingredientes" to recetaIngredientes,
+                        "imagenUrl" to recetaImagenUrl,
+                        "calorias" to recetaCalorias
+                    )
+
+                        val userId =
+                            FirebaseAuth.getInstance().currentUser?.uid ?: return@addOnSuccessListener
+                        db.collection("usuarios")
+                            .document(userId)
+                            .collection("recetasRecientes")
+                            .document(recetaId.toString())  // Usamos el recetaId como el ID del documento
+                            .set(recetaData)
+                            .addOnSuccessListener {
+                                // Receta agregada correctamente
+                                println("Receta agregada a la colección 'recetasRecientes'")
+                            }
+                            .addOnFailureListener { e ->
+                                // Error al subir la receta
+                                println("Error al agregar receta reciente: $e")
+                            }
+                    }else {
                     mostrarMensajeError()
                 }
             }
@@ -78,8 +106,4 @@ class PantallaReceta : AppCompatActivity() {
             getString(R.string.error_al_cargar_la_receta)
     }
 
-    private fun agregarRecetaRecientementeVista(recetaId: Int) {
-        val receta = Receta(recetaId = recetaId)
-        (applicationContext as? Recetas)?.agregarRecetasRecientes(receta)
-    }
 }
