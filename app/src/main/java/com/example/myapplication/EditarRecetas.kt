@@ -21,17 +21,29 @@ class EditarRecetas : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_recetas)
 
-        imgReceta = findViewById(R.id.imageView31)
-        nombreReceta = findViewById(R.id.textView5)
-        preparacion = findViewById(R.id.textView79)
-        ingrediente = findViewById(R.id.textView81)
-        botonGuardar = findViewById(R.id.button13)
 
+        imgReceta = findViewById(R.id.imageView31) // Imagen de la receta (estático)
+        nombreReceta = findViewById(R.id.textView5) // Nombre de la receta
+        preparacion = findViewById(R.id.textView79) // Preparación de la receta
+        ingrediente = findViewById(R.id.textView81) // Ingredientes de la receta
+        botonGuardar = findViewById(R.id.button13) // Botón para guardar cambios
+
+        // Obtener el ID de la receta a editar
         val recipeId = intent.getStringExtra("recipeId")
-        cargarDatosReceta(recipeId)
+        if (recipeId != null) {
+            cargarDatosReceta(recipeId)  // Cargar datos de Firebase si existe un ID
+        } else {
+            Toast.makeText(this, "No se encontró el ID de la receta", Toast.LENGTH_SHORT).show()
+            finish() // Cerrar la actividad si no hay un ID válido
+        }
 
+        // Configurar botón para guardar cambios
         botonGuardar.setOnClickListener {
-            guardarCambios(recipeId)
+            //guardarCambios(recipeId)
+        }
+
+        findViewById<ImageButton>(R.id.button8).setOnClickListener {
+            onBackPressed()
         }
     }
 
@@ -46,35 +58,60 @@ class EditarRecetas : AppCompatActivity() {
                     } else {
                         Toast.makeText(this, "No se encontró la receta", Toast.LENGTH_SHORT).show()
                     }
+
                 }
                 .addOnFailureListener { e ->
-                    Toast.makeText(this, "Error al cargar la receta: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this,
+                        "Error al cargar la receta: ${e.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
         }
-    }
 
-    private fun guardarCambios(recipeId: String?) {
-        val nombre = nombreReceta.text.toString()
-        val prep = preparacion.text.toString()
-        val ingredientes = ingrediente.text.toString()
 
-        if (nombre.isEmpty() || prep.isEmpty() || ingredientes.isEmpty()) {
-            Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
-            return
-        }
+        fun guardarCambios(recipeId: String) {
 
-        val recetaActualizada = hashMapOf(
-            "name" to nombre,
-            "preparation" to prep,
-            "ingredients" to ingredientes
-        )
+            val nombre = nombreReceta.text.toString()
+            val prep = preparacion.text.toString()
+            val ingredientes = ingrediente.text.toString()
 
-        recipeId?.let {
-            db.collection("recipes").document(it).set(recetaActualizada)
+            if (nombre.isEmpty() || prep.isEmpty() || ingredientes.isEmpty()) {
+                Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT)
+                    .show()
+                return
+            }
+
+            val recetaActualizada = hashMapOf(
+                "name" to nombre,
+                "preparation" to prep,
+                "ingredients" to ingredientes
+            )
+
+            recipeId?.let {
+                db.collection("recipes").document(it).set(recetaActualizada)
+                    .addOnSuccessListener {
+                        Toast.makeText(this, "Receta actualizada exitosamente", Toast.LENGTH_SHORT)
+                            .show()
+                        finish()
+                    }
+                    .addOnFailureListener { e ->
+                        Toast.makeText(
+                            this,
+                            "Error al actualizar la receta: ${e.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+            }
+
+            findViewById<ImageButton>(R.id.button8).setOnClickListener {
+                onBackPressed()
+            }
+            db.collection("recipes").document(recipeId).set(recetaActualizada)
                 .addOnSuccessListener {
                     Toast.makeText(this, "Receta actualizada exitosamente", Toast.LENGTH_SHORT)
                         .show()
-                    finish()
+                    finish() // Cerrar la actividad después de guardar
                 }
                 .addOnFailureListener { e ->
                     Toast.makeText(
@@ -83,10 +120,6 @@ class EditarRecetas : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-        }
-
-        findViewById<ImageButton>(R.id.button8).setOnClickListener {
-            onBackPressed()
         }
     }
 }

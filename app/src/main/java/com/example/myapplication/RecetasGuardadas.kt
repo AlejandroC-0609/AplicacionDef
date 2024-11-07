@@ -29,23 +29,32 @@ class RecetasGuardadas : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_recetas_guardadas)
 
+        // Inicializar RecyclerView
         recyclerGuardadas = findViewById(R.id.recyclerRecetasGuardadas)
         recyclerGuardadas.layoutManager = LinearLayoutManager(this)
 
+<<<<<<< HEAD
+=======
+        // Inicializar el adaptador con la lista de recetas
+>>>>>>> ec3264c5e3fb34044611e10a20fcd299a2962dd8
         adapterGuardadas = RecetasGuardadasAdapter(recetasGuardadas)
         recyclerGuardadas.adapter = adapterGuardadas
 
+        // Cargar las recetas guardadas
         cargarRecetasGuardadas()
 
+        // Ajustar el margen superior en dispositivos con barras de sistema
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // Configuración del BottomNavigation
         val bottom_bar = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottom_bar.selectedItemId = R.id.nav_recetas_guardadas
         bottom_bar.setOnItemSelectedListener() { item ->
-            when(item.itemId) {
+            when (item.itemId) {
                 R.id.nav_usuario -> {
                     val intent = Intent(this, Usuario::class.java)
                     startActivity(intent)
@@ -56,7 +65,7 @@ class RecetasGuardadas : AppCompatActivity() {
                     startActivity(intent)
                     true
                 }
-                R.id.nav_recetas_guardadas ->{
+                R.id.nav_recetas_guardadas -> {
                     val intent = Intent(this, RecetasGuardadas::class.java)
                     startActivity(intent)
                     true
@@ -64,10 +73,9 @@ class RecetasGuardadas : AppCompatActivity() {
                 else -> false
             }
         }
-
-
-
     }
+
+    // Cargar recetas guardadas desde Firestore
     private fun cargarRecetasGuardadas() {
         val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return
 
@@ -79,6 +87,8 @@ class RecetasGuardadas : AppCompatActivity() {
                     val receta = document.toObject<Receta>()
                     recetasGuardadas.add(receta)
                 }
+                // Notificar al adaptador para que actualice la vista
+                adapterGuardadas.notifyDataSetChanged()
             }
             .addOnFailureListener { e ->
                 Toast.makeText(this, "Error al cargar las recetas: $e", Toast.LENGTH_SHORT).show()

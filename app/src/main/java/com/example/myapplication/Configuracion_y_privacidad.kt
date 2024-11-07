@@ -22,14 +22,9 @@ class Configuracion_y_privacidad : AppCompatActivity() {
         findViewById<ImageButton>(R.id.button18).setOnClickListener {
             onBackPressed() // Cierra la actividad actual y vuelve a la anterior
         }
-        val botonpol = findViewById<Button>(R.id.button3)
-        botonpol.setOnClickListener {
-            val intent = Intent(this, Configuracion_y_privacidad::class.java)
-            startActivity(intent)
-        }
-        val botonTer = findViewById<Button>(R.id.button4)
-        botonTer.setOnClickListener {
-            val intent = Intent(this, Configuracion_y_privacidad::class.java)
+        val botonterm = findViewById<Button>(R.id.button4)
+        botonterm.setOnClickListener {
+            val intent = Intent(this, Terminos_y_condiciones::class.java)
             startActivity(intent)
         }
         val botonidi = findViewById<Button>(R.id.button10)

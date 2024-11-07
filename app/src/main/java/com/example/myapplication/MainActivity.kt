@@ -5,18 +5,21 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val currentUser = FirebaseAuth.getInstance().currentUser
-        if (currentUser != null) {
-            val intent = Intent(this, Recetas::class.java)
+        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+        val sesionIniciada = sharedPreferences.getBoolean("sesionIniciada", false)
+
+        if (!sesionIniciada) {
+            val intent = Intent(this, Inicio1::class.java)
             startActivity(intent)
+            finish()
         } else {
-            setContentView(R.layout.activity_inicio1)
+            setContentView(R.layout.activity_recetas)
         }
 
         Log.d(TAG, "onCreate")

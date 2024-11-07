@@ -230,9 +230,10 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/baseline_settings_24"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.953"
+                app:layout_constraintHorizontal_bias="0.954"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
