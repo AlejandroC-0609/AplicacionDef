@@ -106,41 +106,18 @@ class Recetas : AppCompatActivity() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (!query.isNullOrEmpty()) {
-                    buscarRecetaPorNombre(query)
+                    val intent = Intent(this@Recetas, ResultadosBusqueda::class.java)
+                    intent.putExtra("query", query)
+                    startActivity(intent)
                 }
                 return true
             }
 
-            override fun onQueryTextChange(query: String?): Boolean {
+            override fun onQueryTextChange(newText: String?): Boolean {
                 return false
             }
-
-
         })
 
-    }
-
-    //BUSQUEDA
-    private fun buscarRecetaPorNombre(nombre: String) {
-        val nombre =  nombre.lowercase()
-
-        db.collection("datosDefault")
-            .whereEqualTo("nombreReceta", nombre)
-            .whereLessThanOrEqualTo("nombreReceta", nombre + "\uf8ff")
-            .get()
-            .addOnSuccessListener { documents ->
-                val recetasEncontradas = mutableListOf<Receta>()
-                for (document in documents) {
-                    val receta = document.toObject<Receta>()
-                    recetasEncontradas.add(receta)
-                }
-                val intent = Intent(this, ResultadosBusqueda::class.java)
-                intent.putExtra("query", nombre)
-                startActivity(intent)
-            }
-            .addOnFailureListener { e ->
-                Toast.makeText(this, "Error cargando recetas: $e", Toast.LENGTH_SHORT).show()
-            }
     }
 
 

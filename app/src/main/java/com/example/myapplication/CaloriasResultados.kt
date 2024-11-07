@@ -26,7 +26,6 @@ class CaloriasResultados : AppCompatActivity() {
             insets
         }
 
-        // Mostrar el total de calorías
         totalCalories = intent.getIntExtra("TOTAL_CALORIES", 0)
         val totalCaloriesTextView = findViewById<TextView>(R.id.totalCaloriesTextView)
         totalCaloriesTextView.text = "$totalCalories Kcal"
@@ -56,7 +55,7 @@ class CaloriasResultados : AppCompatActivity() {
             startActivity(intent)
         }
         findViewById<ImageButton>(R.id.button11).setOnClickListener {
-            onBackPressed() // Cierra la actividad actual y vuelve a la anterior
+            onBackPressed()
         }
     }
 }

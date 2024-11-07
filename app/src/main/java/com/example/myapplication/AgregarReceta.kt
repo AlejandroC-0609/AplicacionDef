@@ -7,14 +7,10 @@ import android.net.Uri
 import android.os.Bundle
 import android.text.InputType
 import android.widget.*
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.marginTop
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
@@ -31,18 +27,12 @@ class AgregarReceta : AppCompatActivity() {
     private lateinit var calorias: EditText
     private val listaIngredientes = mutableListOf<String>()
     private lateinit var contenedorIngredientes: LinearLayout
-    private lateinit var seleccionarIamgen: ActivityResultLauncher<Intent>
+    private lateinit var seleccionarImagen: ActivityResultLauncher<Intent>
     private var imageUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_agregar_receta)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
         imgReceta = findViewById(R.id.imageView32)
         nombreReceta = findViewById(R.id.nombreCampoAgregar)
@@ -53,14 +43,23 @@ class AgregarReceta : AppCompatActivity() {
         porciones = findViewById(R.id.porcionesCampoAgregar)
         calorias = findViewById(R.id.caloriasCampoAgregar)
 
+        seleccionarImagen = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                imageUri = result.data?.data
+                imgReceta.setImageURI(imageUri)
+            }
+        }
 
-        findViewById<Button>(R.id.agregarImagen).setOnClickListener {
+        findViewById<ImageButton>(R.id.agregarImagen).setOnClickListener {
             seleccionarImagen()
         }
 
-        findViewById<Button>(R.id.agregarIngrediente).setOnClickListener {
+        findViewById<ImageButton>(R.id.agregarIngrediente).setOnClickListener {
             val campoIngrediente = EditText(this).apply {
-                layoutParams = LinearLayout.LayoutParams(300, 46).apply {
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                ).apply {
                     topMargin = 20
                 }
                 background = ContextCompat.getDrawable(this@AgregarReceta, R.drawable.roundededittext)
@@ -73,16 +72,6 @@ class AgregarReceta : AppCompatActivity() {
             contenedorIngredientes.addView(campoIngrediente)
         }
 
-        seleccionarIamgen = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                val data: Intent? = result.data
-                val uri = data?.data
-                if (uri != null) {
-                    imgReceta.setImageURI(uri)
-                    imageUri = uri
-                }
-            }
-        }
         findViewById<Button>(R.id.button6).setOnClickListener {
             guardarRecetaFirebase()
         }
@@ -95,15 +84,7 @@ class AgregarReceta : AppCompatActivity() {
     private fun seleccionarImagen() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
-        seleccionarIamgen.launch(intent)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == IMAGE_PICK_CODE && resultCode == RESULT_OK) {
-            imageUri = data?.data
-            imgReceta.setImageURI(imageUri)
-        }
+        seleccionarImagen.launch(intent)
     }
 
     private fun guardarRecetaFirebase() {
@@ -136,8 +117,8 @@ class AgregarReceta : AppCompatActivity() {
             if (document != null && document.exists()) {
                 val ultimoIdReceta = document.getLong("ultimoIdReceta")?.toInt() ?: 99
                 val nuevoIdReceta = ultimoIdReceta + 1
-                val storageRef =
-                    FirebaseStorage.getInstance().reference.child("imagenesRecetas/${UUID.randomUUID()}")
+                val storageRef = FirebaseStorage.getInstance().reference.child("imagenesRecetas/${UUID.randomUUID()}")
+
                 imageUri?.let {
                     storageRef.putFile(it)
                         .addOnSuccessListener { taskSnapshot ->
@@ -158,47 +139,27 @@ class AgregarReceta : AppCompatActivity() {
                                     .addOnSuccessListener {
                                         referenciaMeta.update("ultimoIdReceta", nuevoIdReceta)
                                             .addOnSuccessListener {
-                                                Toast.makeText(
-                                                    this,
-                                                    "Receta guardada exitosamente",
-                                                    Toast.LENGTH_SHORT
-                                                ).show()
+                                                Toast.makeText(this, "Receta guardada exitosamente", Toast.LENGTH_SHORT).show()
                                                 finish()
                                             }
                                             .addOnFailureListener { e ->
-                                                Toast.makeText(
-                                                    this,
-                                                    "Error al actualizar el último ID: ${e.message}",
-                                                    Toast.LENGTH_SHORT
-                                                ).show()
+                                                Toast.makeText(this, "Error al actualizar el último ID: ${e.message}", Toast.LENGTH_SHORT).show()
                                             }
                                     }
                                     .addOnFailureListener { e ->
-                                        Toast.makeText(
-                                            this,
-                                            "Error al guardar la receta: ${e.message}",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
+                                        Toast.makeText(this, "Error al guardar la receta: ${e.message}", Toast.LENGTH_SHORT).show()
                                     }
                             }
                         }
                         .addOnFailureListener { e ->
-                            Toast.makeText(
-                                this,
-                                "Error al subir la imagen: ${e.message}",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            Toast.makeText(this, "Error al subir la imagen: ${e.message}", Toast.LENGTH_SHORT).show()
                         }
                 }
-            }else {
+            } else {
                 Toast.makeText(this, "Error al obtener el último ID", Toast.LENGTH_SHORT).show()
             }
         }.addOnFailureListener { e ->
             Toast.makeText(this, "Error al acceder a Firebase: ${e.message}", Toast.LENGTH_SHORT).show()
         }
-    }
-
-    companion object {
-        private const val IMAGE_PICK_CODE = 1000
     }
 }

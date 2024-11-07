@@ -7,6 +7,11 @@
         android:maxSdkVersion="32"
         tools:ignore="WrongManifestParent" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -132,7 +137,9 @@
             android:name=".Inicio1"
             android:exported="true"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"></activity>
+            tools:ignore="LockedOrientationActivity"/>
     </application>
+
+
 
 </manifest>

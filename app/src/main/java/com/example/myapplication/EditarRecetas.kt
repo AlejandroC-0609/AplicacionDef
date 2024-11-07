@@ -21,13 +21,13 @@ class EditarRecetas : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_recetas)
 
-        imgReceta = findViewById(R.id.imageView31) // Imagen de la receta
-        nombreReceta = findViewById(R.id.textView5) // Nombre de la receta
-        preparacion = findViewById(R.id.textView79) // Preparación de la receta
-        ingrediente = findViewById(R.id.textView81) // Ingredientes de la receta
-        botonGuardar = findViewById(R.id.button13) // Botón para guardar cambios
+        imgReceta = findViewById(R.id.imageView31)
+        nombreReceta = findViewById(R.id.textView5)
+        preparacion = findViewById(R.id.textView79)
+        ingrediente = findViewById(R.id.textView81)
+        botonGuardar = findViewById(R.id.button13)
 
-        val recipeId = intent.getStringExtra("recipeId") // ID de la receta (asumiendo que es pasado por Intent)
+        val recipeId = intent.getStringExtra("recipeId")
         cargarDatosReceta(recipeId)
 
         botonGuardar.setOnClickListener {
@@ -36,14 +36,13 @@ class EditarRecetas : AppCompatActivity() {
     }
 
     private fun cargarDatosReceta(recipeId: String?) {
-        // Cargar los datos de la receta desde Firebase
         recipeId?.let {
             db.collection("recipes").document(it).get()
                 .addOnSuccessListener { document ->
                     if (document != null) {
                         nombreReceta.setText(document.getString("name"))
                         preparacion.setText(document.getString("preparation"))
-                        ingrediente.setText(document.get("ingredients") as? String) // Convertir a texto
+                        ingrediente.setText(document.get("ingredients") as? String)
                     } else {
                         Toast.makeText(this, "No se encontró la receta", Toast.LENGTH_SHORT).show()
                     }
@@ -55,7 +54,6 @@ class EditarRecetas : AppCompatActivity() {
     }
 
     private fun guardarCambios(recipeId: String?) {
-        // Guardar los cambios en Firebase
         val nombre = nombreReceta.text.toString()
         val prep = preparacion.text.toString()
         val ingredientes = ingrediente.text.toString()
@@ -76,7 +74,7 @@ class EditarRecetas : AppCompatActivity() {
                 .addOnSuccessListener {
                     Toast.makeText(this, "Receta actualizada exitosamente", Toast.LENGTH_SHORT)
                         .show()
-                    finish() // Cerrar la actividad después de guardar
+                    finish()
                 }
                 .addOnFailureListener { e ->
                     Toast.makeText(

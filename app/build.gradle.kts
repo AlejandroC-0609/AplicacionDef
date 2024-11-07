@@ -48,6 +48,7 @@ dependencies {
     // When using the BoM, you don't specify versions in Firebase library dependencies
 
     // Add the dependency for the Firebase SDK for Google Analytics
+    implementation (libs.play.services.base)
     implementation(libs.github.glide)
     implementation(libs.firebase.auth.ktx)
     implementation(libs.androidx.room.ktx)

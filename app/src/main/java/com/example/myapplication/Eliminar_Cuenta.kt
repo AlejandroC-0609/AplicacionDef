@@ -19,7 +19,7 @@ class Eliminar_Cuenta : AppCompatActivity() {
             insets
         }
         findViewById<ImageButton>(R.id.button19).setOnClickListener {
-            onBackPressed() // Cierra la actividad actual y vuelve a la anterior
+            onBackPressed()
         }
     }
 }

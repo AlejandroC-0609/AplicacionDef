@@ -32,6 +32,7 @@ class RecetasGuardadas : AppCompatActivity() {
         recyclerGuardadas = findViewById(R.id.recyclerRecetasGuardadas)
         recyclerGuardadas.layoutManager = LinearLayoutManager(this)
 
+        adapterGuardadas = RecetasGuardadasAdapter(recetasGuardadas)
         recyclerGuardadas.adapter = adapterGuardadas
 
         cargarRecetasGuardadas()

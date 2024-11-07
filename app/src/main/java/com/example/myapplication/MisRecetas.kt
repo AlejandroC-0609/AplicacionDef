@@ -30,6 +30,7 @@ class MisRecetas : AppCompatActivity() {
         recyclerMisRecetas = findViewById(R.id.recyclerMisRecetas)
         recyclerMisRecetas.layoutManager = LinearLayoutManager(this)
 
+        adapterMisRecetas = MisRecetasAdapter(misRecetas)
         recyclerMisRecetas.adapter = adapterMisRecetas
 
 

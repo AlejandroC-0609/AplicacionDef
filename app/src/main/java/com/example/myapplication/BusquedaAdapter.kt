@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
 class BusquedaAdapter(
-    private val recipes: List<Receta>,
+    private val recetas: MutableList<Receta>,
     private val onClick: (Receta, View) -> Unit
 ) : RecyclerView.Adapter<BusquedaAdapter.BusquedaViewHolder>() {
 
@@ -39,8 +39,8 @@ class BusquedaAdapter(
     }
 
     override fun onBindViewHolder(holder: BusquedaViewHolder, position: Int) {
-        holder.bind(recipes[position])
+        holder.bind(recetas[position])
     }
 
-    override fun getItemCount(): Int = recipes.size
+    override fun getItemCount(): Int = recetas.size
 }

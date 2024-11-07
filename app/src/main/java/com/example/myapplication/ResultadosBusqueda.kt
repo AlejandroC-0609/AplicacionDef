@@ -4,6 +4,7 @@ import Receta
 import android.content.Intent
 import android.widget.Toast
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageButton
 import android.widget.SearchView
 import androidx.activity.enableEdgeToEdge
@@ -13,17 +14,27 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.toObject
 
 class ResultadosBusqueda : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
     private lateinit var recyclerBusqueda: RecyclerView
-   override fun onCreate(savedInstanceState: Bundle?) {
+    private lateinit var busquedaAdapter: BusquedaAdapter
+    private val recetasEncontradas = mutableListOf<Receta>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_resultados_busqueda)
 
-        recyclerBusqueda = findViewById(R.id.recyclerResultados)
-        recyclerBusqueda.layoutManager = LinearLayoutManager(this)
+       recyclerBusqueda = findViewById(R.id.recyclerResultados)
+       recyclerBusqueda.layoutManager = LinearLayoutManager(this)
+       busquedaAdapter = BusquedaAdapter(recetasEncontradas) { receta, _ ->
+           val intent = Intent(this, PantallaReceta::class.java)
+           intent.putExtra("RECETA_ID", receta.recetaId)
+           startActivity(intent)
+       }
+       recyclerBusqueda.adapter = busquedaAdapter
         
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -44,7 +55,7 @@ class ResultadosBusqueda : AppCompatActivity() {
                 return true
             }
 
-            override fun onQueryTextChange(query: String?): Boolean {
+            override fun onQueryTextChange(newText: String?): Boolean {
                 return false
             }
         })
@@ -52,38 +63,33 @@ class ResultadosBusqueda : AppCompatActivity() {
         val query = intent.getStringExtra("query")
         if (!query.isNullOrEmpty()) {
             searchView.setQuery(query, false)
-            searchView.     queryHint = query
             buscarRecetas(query)
         }
     }
     private fun buscarRecetas(query: String) {
+        val queryLower = query.lowercase()
+
         db.collection("datosDefault")
-            .whereGreaterThanOrEqualTo("nombreReceta", query)
-            .whereLessThanOrEqualTo("nombreReceta", query + "\uf8ff")
+            .whereGreaterThanOrEqualTo("nombreReceta", queryLower)
+            .whereLessThan("nombreReceta", queryLower + "\uf8ff")
             .get()
             .addOnSuccessListener { documents ->
-                val recetasEncontradas = mutableListOf<Receta>()
+                recetasEncontradas.clear()
                 for (document in documents) {
-                    val receta = document.toObject(Receta::class.java)
+                    val receta = document.toObject<Receta>()
                     recetasEncontradas.add(receta)
+                    Log.d("BusquedaRecetas", "Receta encontrada: ${receta.nombreReceta}")
                 }
-                mostrarResultadosBusqueda(recetasEncontradas)
+                if (recetasEncontradas.isEmpty()) {
+                    Log.d("BusquedaRecetas", "No se encontraron recetas")
+                    Toast.makeText(this, "No se encontraron recetas", Toast.LENGTH_SHORT).show()
+                }
+                busquedaAdapter.notifyDataSetChanged()
             }
-            .addOnFailureListener {
+            .addOnFailureListener { exception ->
+                Log.e("BusquedaRecetas", "Error al buscar recetas", exception)
                 Toast.makeText(this, "Error al buscar recetas", Toast.LENGTH_SHORT).show()
             }
     }
-    private fun mostrarResultadosBusqueda(recetasEncontradas: List<Receta>) {
-        if (recetasEncontradas.isEmpty()) {
-            Toast.makeText(this, "No se encontraron recetas", Toast.LENGTH_SHORT).show()
-            return
-        }
 
-        val adapter = BusquedaAdapter(recetasEncontradas) { receta, _ ->
-            val intent = Intent(this, PantallaReceta::class.java)
-            intent.putExtra("RECETA_ID", receta.recetaId)
-            startActivity(intent)
-        }
-        recyclerBusqueda.adapter = adapter
-    }
 }
