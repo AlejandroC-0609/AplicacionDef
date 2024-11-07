@@ -390,7 +390,7 @@
                 android:layout_height="64dp"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/naranja_oscuro"
-                android:text="Agregar Caloarias a Usuario"
+                android:text="Agregar Calorias a Usuario"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"

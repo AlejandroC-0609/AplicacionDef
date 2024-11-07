@@ -110,7 +110,7 @@ class AgregarReceta : AppCompatActivity() {
         }
 
         val firestore = FirebaseFirestore.getInstance()
-        val referenciaMeta = firestore.collection("meta").document("configuracion")
+        val referenciaMeta = firestore.collection("metadatos").document("configuracion")
         val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return
 
         referenciaMeta.get().addOnSuccessListener { document ->
